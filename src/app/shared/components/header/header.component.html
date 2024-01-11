@@ -1,0 +1,15 @@
+<div class="multiButton">
+  <select
+    class="form-control-language"
+    #selectedLang
+    (change)="switchLanguage(selectedLang.value)"
+  >
+    <option
+      *ngFor="let language of translate.getLangs()"
+      [value]="language"
+      [selected]="language === translate.currentLang"
+    >
+      {{ language }}
+    </option>
+  </select>
+</div>
