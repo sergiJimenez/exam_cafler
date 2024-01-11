@@ -1,0 +1,8 @@
+# Ignore artifacts:
+coverage
+node_modules/
+build/
+env/
+/.vscode
+dist
+.gitignore

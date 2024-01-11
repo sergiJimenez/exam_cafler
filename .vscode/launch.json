@@ -7,14 +7,32 @@
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "meteor://💻app/*": "${workspaceFolder}/*",
+        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "webpack://?:*/*": "${workspaceFolder}/*"
+      }
     },
     {
       "name": "ng test",
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "./src/*": "${workspaceFolder}/src/*"
+      }
+    },
+    {
+      "name": "ng e2e",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
+      "args": ["${workspaceFolder}/e2e/protractor.conf.js"]
     }
   ]
 }
