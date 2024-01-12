@@ -3,10 +3,23 @@
     <h2>Ruta {{ productRouteDetail.routeId }}</h2>
     <div *ngFor="let productsName of productRouteDetail.productsToDeliver">
       <p>
-        {{ productsName.orderId | productName }}
+        {{
+          productsName.orderId
+            | productName: ls.getItem("orderList") || []
+            | translate
+        }}
       </p>
     </div>
-    <p>Conductor: {{ productRouteDetail.driverId }}</p><!-- Hacer lo mismo que en productos pero con los conductores -->
+    <p>
+      Conductor:
+      {{
+        productRouteDetail.driverId
+          | ridersName: ls.getItem("riderList") || []
+          | translate
+      }}
+    </p>
   </div>
 </div>
-<a routerLink="/home">{{ "assign2" | translate }}</a>
+<a routerLink="/home">{{ "assign2" | translate }}</a
+><br />
+<button>{{ "saveRoutes" | translate }}</button>

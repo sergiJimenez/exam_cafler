@@ -1,7 +1,10 @@
 {
   "home": "Assign",
   "assign1": "Assign page!",
-  "assign2": "Home",
+  "assign2": "Back",
   "error1": "Error!",
-  "error2": "Go home"
+  "error2": "Go home",
+  "saveRoutes": "Save",
+  "noProductName": "This product has not name...",
+  "noRiderName": "We cannot found the name of this rider..."
 }

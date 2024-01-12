@@ -21,11 +21,11 @@ export class HomePageComponent implements OnInit {
     this.loadOrders();
   }
 
-  private loadOrders(): void {
-    this.orders$ = this.ordersService.getOrders();
-  }
-
   public allowAccess(): void {
     this.productAccessService.allowAccess();
+  }
+
+  private loadOrders(): void {
+    this.orders$ = this.ordersService.getOrders();
   }
 }

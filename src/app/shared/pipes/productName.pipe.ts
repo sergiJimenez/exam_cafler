@@ -5,13 +5,16 @@ import { IOrders } from "../interfaces/orders.interface";
   name: "productName",
 })
 export class ProductNamePipe implements PipeTransform {
-  transform(orderId: string | IOrders): string {
+  transform(orderId: string | IOrders, orderArray: IOrders[]): string {
     if (typeof orderId === "string") {
-      return orderId;
+      return (
+        (orderArray.find((element: IOrders) => element.orderId === orderId)
+          ?.productName as string) || "noProductName"
+      );
     } else if (orderId && orderId.productName) {
       return orderId.productName;
     } else {
-      return "Sin Nombre";
+      return "noProductName";
     }
   }
 }
