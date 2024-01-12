@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { RoutesConst } from "./core/constants/routes";
 import { ErrorComponent } from "./shared/views/error/error.component";
 import { AssignPageComponent } from "./features/pages/assign_page/views/assign_page.component";
+import { ProductDetailsGuard } from "./core/guards/product_details.guard";
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
   {
     path: "assign/:orderId",
     component: AssignPageComponent,
+    canActivate: [ProductDetailsGuard],
   },
   {
     path: RoutesConst.ERRORPATH,

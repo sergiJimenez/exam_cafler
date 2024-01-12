@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 import { OrdersService } from "src/app/features/services/orders.service";
 import { RoutesConst } from "src/app/core/constants/routes";
+import { ProductAccessService } from "src/app/core/services/product_access.service";
 
 @Component({
   selector: "app-home-page",
@@ -15,7 +16,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private ordersService: OrdersService,
-    private router: Router
+    private router: Router,
+    private productAccessService: ProductAccessService
   ) {}
 
   public ngOnInit(): void {
@@ -27,6 +29,7 @@ export class HomePageComponent implements OnInit {
   }
 
   public orderId(id: string): void {
+    this.productAccessService.allowAccess();
     this.router.navigate([`${RoutesConst.ASSIGN}`, id]);
   }
 }
