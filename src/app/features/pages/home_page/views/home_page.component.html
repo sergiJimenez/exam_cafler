@@ -2,10 +2,10 @@ Pedidos para el día siguiente:
 <div *ngIf="orders$ | async as orders">
   <div *ngFor="let order of orders">
     <div>
-      <a>
-        {{ order.productName }} =>
-        <a routerLink="/assign" (click)="orderId(order.orderId)">{{ "home" | translate }}</a>
-      </a>
+      <a> {{ order.productName }} </a>
     </div>
   </div>
 </div>
+<a routerLink="/assign" (click)="allowAccess()">
+  {{ "home" | translate }}
+</a>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { OrdersService } from "src/app/features/services/orders.service";
-import { IOrders } from "src/app/shared/interfaces/orders.interface";
+import { Observable } from "rxjs";
+import { OptimizedRoutesService } from "src/app/features/services/optimized-routes.service";
+import { IOptimizedRoutes } from "src/app/shared/interfaces/optimized-routes.interface";
 
 @Component({
   selector: "app-assign-page",
@@ -9,24 +9,16 @@ import { IOrders } from "src/app/shared/interfaces/orders.interface";
   styleUrls: ["./assign_page.component.scss"],
 })
 export class AssignPageComponent implements OnInit {
-  private orderId: string = "";
-  public orderDetails: IOrders | undefined;
+  public optimizedRoutes$!: Observable<IOptimizedRoutes[]>;
+  public optimizedRoutesDetails: IOptimizedRoutes | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private ordersService: OrdersService
-  ) {}
+  constructor(private optimizedRoutes: OptimizedRoutesService) {}
 
   public ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.orderId = params["orderId"];
-      this.loadOrderDetails();
-    });
+    this.loadOptimizedRoutes();
   }
 
-  private loadOrderDetails(): void {
-    this.ordersService.getOrdersId(this.orderId).subscribe((details) => {
-      this.orderDetails = details;
-    });
+  private loadOptimizedRoutes(): void {
+    this.optimizedRoutes$ = this.optimizedRoutes.getOptimizedRoutes();
   }
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 import { OrdersService } from "src/app/features/services/orders.service";
-import { RoutesConst } from "src/app/core/constants/routes";
 import { ProductAccessService } from "src/app/core/services/product_access.service";
 
 @Component({
@@ -16,7 +14,6 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private ordersService: OrdersService,
-    private router: Router,
     private productAccessService: ProductAccessService
   ) {}
 
@@ -28,8 +25,7 @@ export class HomePageComponent implements OnInit {
     this.orders$ = this.ordersService.getOrders();
   }
 
-  public orderId(id: string): void {
+  public allowAccess(): void {
     this.productAccessService.allowAccess();
-    this.router.navigate([`${RoutesConst.ASSIGN}`, id]);
   }
 }

@@ -10,8 +10,8 @@ import { Observable } from "rxjs";
 export class OptimizedRoutesService {
   constructor(private http: HttpClient) {}
 
-  getOptimizedRoutes(): Observable<IOptimizedRoutes> {
-    return this.http.get<IOptimizedRoutes>(
+  getOptimizedRoutes(): Observable<IOptimizedRoutes[]> {
+    return this.http.get<IOptimizedRoutes[]>(
       `${environment.BASE_URL}${environment.OPTIMIZED_ROUTES}`
     );
   }
