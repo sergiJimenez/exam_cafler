@@ -1,35 +1,14 @@
-import { Injectable } from "@angular/core";
-import { CanActivate, UrlTree, Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { inject } from "@angular/core";
+import { Router, CanActivateFn } from "@angular/router";
 import { ProductAccessService } from "../services/product_access.service";
 import { RoutesConst } from "../constants/routes";
 
-@Injectable({
-  providedIn: "root",
-})
-export class ProductDetailsGuard implements CanActivate {
-  constructor(
-    private productAccessService: ProductAccessService,
-    private router: Router
-  ) {}
-
-  canActivate():
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    return this.checkAccess();
+export const ProductDetailsGuard: CanActivateFn = () => {
+  const productAccessService = inject(ProductAccessService);
+  const router = inject(Router);
+  if (productAccessService.canAccess()) {
+    return true;
+  } else {
+    return router.createUrlTree([RoutesConst.ERROR]);
   }
-
-  private checkAccess():
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    if (this.productAccessService.canAccess()) {
-      return true;
-    } else {
-      return this.router.createUrlTree([RoutesConst.ERROR]);
-    }
-  }
-}
+};
