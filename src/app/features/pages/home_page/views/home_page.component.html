@@ -1,1 +1,11 @@
-<a routerLink="/assign">{{ "home" | translate }}</a>
+Pedidos para el día siguiente:
+<div *ngIf="orders$ | async as orders">
+  <div *ngFor="let order of orders">
+    <div>
+      <a>
+        {{ order.productName }} =>
+        <a routerLink="/assign" (click)="orderId(order.orderId)">{{ "home" | translate }}</a>
+      </a>
+    </div>
+  </div>
+</div>

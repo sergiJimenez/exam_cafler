@@ -1,2 +1,10 @@
 {{ "assign1" | translate }}<br />
+<div *ngIf="orderDetails">
+  <h2>Detalles del Pedido</h2>
+  <p>Nombre del Producto: {{ orderDetails.productName }}</p>
+  <p>Precio: {{ orderDetails.price }}</p>
+  <p>Ubicación de entrega:</p>
+  <p>Latitud: {{ orderDetails.deliveryLocation.lat }}</p>
+  <p>Longitud: {{ orderDetails.deliveryLocation.lng }}</p>
+</div>
 <a routerLink="/home">{{ "assign2" | translate }}</a>
