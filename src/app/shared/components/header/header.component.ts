@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
+import { RoutesConst } from "src/app/core/constants/routes";
 
 @Component({
   selector: "app-header",
@@ -7,17 +8,21 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
-  constructor(public translate: TranslateService) {
-    translate.addLangs(["es", "cat", "en", "fr", "it"]);
+  public pages: { name: string; route: string }[] = [
+    { name: "navItem1", route: RoutesConst.HOME }
+  ];
 
-    if (localStorage.getItem("locale")) {
-      translate.setDefaultLang(localStorage.getItem("locale") || "[]");
-      translate.use(localStorage.getItem("locale") || "[]");
+  constructor(public translate: TranslateService) {
+    translate.addLangs(["es", "cat", "eusk", "en", "fr", "it"]);
+
+    if (localStorage.getItem("LocalLanguage")) {
+      translate.setDefaultLang(localStorage.getItem("LocalLanguage") || "[]");
+      translate.use(localStorage.getItem("LocalLanguage") || "[]");
     } else {
       const browserLang = translate.getBrowserLang();
       translate.setDefaultLang(browserLang || "[]");
       translate.use(browserLang?.match(/es|en/) ? browserLang : "es");
-      localStorage.setItem("locale", browserLang || "[]");
+      localStorage.setItem("LocalLanguage", browserLang || "[]");
     }
   }
 
