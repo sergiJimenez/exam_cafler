@@ -1,23 +1,36 @@
-<div *ngIf="optimizedRoutes$ | async as optimizedRoutes">
-  <div *ngFor="let productRouteDetail of optimizedRoutes">
-    <h2>Ruta {{ productRouteDetail.routeId }}</h2>
-    <div *ngFor="let productsName of productRouteDetail.productsToDeliver">
-      <p>
-        {{
-          productsName.orderId
-            | productName: ls.getItem("orderList") || []
-            | translate
-        }}
-      </p>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <div *ngIf="optimizedRoutes$ | async as optimizedRoutes">
+      <div *ngFor="let productRouteDetail of optimizedRoutes">
+        <h2>Ruta {{ productRouteDetail.routeId }}</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="example-box"
+            *ngFor="let productsName of productRouteDetail.productsToDeliver"
+            cdkDrag
+          >
+            {{
+              productsName.orderId
+                | productName: ls.getItem("orderList") || []
+                | translate
+            }}
+          </div>
+        </div>
+        <p>
+          Conductor:
+          {{
+            productRouteDetail.driverId
+              | ridersName: ls.getItem("riderList") || []
+              | translate
+          }}
+        </p>
+      </div>
     </div>
-    <p>
-      Conductor:
-      {{
-        productRouteDetail.driverId
-          | ridersName: ls.getItem("riderList") || []
-          | translate
-      }}
-    </p>
   </div>
 </div>
 <a routerLink="/home">{{ "assign2" | translate }}</a

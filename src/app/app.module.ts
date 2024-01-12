@@ -17,6 +17,7 @@ import {
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { SpinnerComponent } from "./core/components/spinner/spinner.component";
 import { LoadingInterceptor } from "./core/interceptor/loading.interceptor";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -36,6 +37,7 @@ export function httpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    NoopAnimationsModule,
   ],
   providers: [
     TranslateService,
