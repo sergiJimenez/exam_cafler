@@ -15,13 +15,15 @@ import {
   TranslateService,
 } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { SpinnerComponent } from "./core/components/spinner/spinner.component";
+import { LoadingInterceptor } from "./core/interceptor/loading.interceptor";
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SpinnerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,6 +42,11 @@ export function httpLoaderFactory(http: HttpClient) {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true,
     },
   ],

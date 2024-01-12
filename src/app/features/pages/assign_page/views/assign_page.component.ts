@@ -27,7 +27,6 @@ export class AssignPageComponent implements OnInit {
   private loadOrderDetails(): void {
     this.ordersService.getOrdersId(this.orderId).subscribe((details) => {
       this.orderDetails = details;
-      console.log(details);
     });
   }
 }
