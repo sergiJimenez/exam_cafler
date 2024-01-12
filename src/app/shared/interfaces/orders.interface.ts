@@ -3,7 +3,7 @@ export interface IOrders {
   productName: string;
   price: number;
   deliveryLocation: {
-    lat: number;
-    lng: number;
+    latitude: number;
+    longitude: number;
   };
 }
