@@ -1,15 +1,23 @@
-<div class="multiButton">
-  <select
-    class="form-control-language"
-    #selectedLang
-    (change)="switchLanguage(selectedLang.value)"
-  >
-    <option
-      *ngFor="let language of translate.getLangs()"
-      [value]="language"
-      [selected]="language === translate.currentLang"
+<div>
+  <div>LOGO</div>
+  <div class="pageButtons">
+    <button *ngFor="let page of pages" [routerLink]="page.route">
+      {{ page.name | translate }}
+    </button>
+  </div>
+  <div class="multiButton">
+    <select
+      class="form-control-language"
+      #selectedLang
+      (change)="switchLanguage(selectedLang.value)"
     >
-      {{ language }}
-    </option>
-  </select>
+      <option
+        *ngFor="let language of translate.getLangs()"
+        [value]="language"
+        [selected]="language === translate.currentLang"
+      >
+        {{ language }}
+      </option>
+    </select>
+  </div>
 </div>
