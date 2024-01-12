@@ -1,7 +1,11 @@
-export interface IOptimizedRoutes {
+import { IOrders } from "./orders.interface";
+
+export interface IOptimizedRoutes extends IOrders {
   routeId: string;
   driverId: string;
-  productsToDeliver: {
-    orderId: string;
-  };
+  productsToDeliver: [
+    {
+      orderId: IOrders;
+    },
+  ];
 }

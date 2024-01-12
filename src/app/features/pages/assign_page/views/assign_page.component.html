@@ -1,10 +1,25 @@
-{{ "assign1" | translate }}<br />
-<div *ngIf="orderDetails">
-  <h2>Detalles del Pedido</h2>
-  <p>Nombre del Producto: {{ orderDetails.productName }}</p>
-  <p>Precio: {{ orderDetails.price }}</p>
-  <p>Ubicación de entrega:</p>
-  <p>Latitud: {{ orderDetails.deliveryLocation.latitude }}</p>
-  <p>Longitud: {{ orderDetails.deliveryLocation.longitude }}</p>
+<div *ngIf="optimizedRoutes$ | async as optimizedRoutes">
+  <div *ngFor="let productRouteDetail of optimizedRoutes">
+    <h2>Ruta {{ productRouteDetail.routeId }}</h2>
+    <div *ngFor="let productsName of productRouteDetail.productsToDeliver">
+      <p>
+        {{
+          productsName.orderId
+            | productName: ls.getItem("orderList") || []
+            | translate
+        }}
+      </p>
+    </div>
+    <p>
+      Conductor:
+      {{
+        productRouteDetail.driverId
+          | ridersName: ls.getItem("riderList") || []
+          | translate
+      }}
+    </p>
+  </div>
 </div>
-<a routerLink="/home">{{ "assign2" | translate }}</a>
+<a routerLink="/home">{{ "assign2" | translate }}</a
+><br />
+<button>{{ "saveRoutes" | translate }}</button>
