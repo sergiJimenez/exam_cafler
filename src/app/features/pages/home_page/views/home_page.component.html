@@ -1,7 +1,6 @@
-<img class="decorator">
+<svg class="decorator"></svg>
 <div class="greetingsMessage">
-  <span class="welcome">{{ "greetings" | translate }}</span
-  ><span class="username">{{ username }}</span>
+  <span class="welcome">{{ "greetings" | translate }}</span><span class="username">{{ username }}</span>
 </div>
 <div class="container" *ngIf="orders$ | async as orders; else noData">
   <div class="ordersText">{{ "ordersText" | translate }}</div>
