@@ -1,10 +1,16 @@
 {
   "home": "Assign",
-  "assign1": "Assign page!",
-  "assign2": "Back",
+  "assign1": "Back",
   "error1": "Error!",
-  "error2": "Go home",
+  "error2": "Go to Home",
+  "navItem1": "Home",
+  "es": "Spanish",
+  "cat": "Catalan",
+  "eusk": "Basque",
+  "en": "English",
+  "fr": "French",
+  "it": "Italian",
   "saveRoutes": "Save",
-  "noProductName": "This product has not name...",
-  "noRiderName": "We cannot found the name of this rider..."
+  "noProductName": "We couldn't find the product name...",
+  "noRiderName": "We couldn't find the name of this rider..."
 }

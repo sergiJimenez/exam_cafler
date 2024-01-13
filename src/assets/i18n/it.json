@@ -1,7 +1,16 @@
 {
-  "home": "italian",
-  "assign1": "italian",
-  "assign2": "italian",
-  "error1": "italian",
-  "error2": "italian"
+  "home": "Casa",
+  "assign1": "Indietro",
+  "error1": "Errore!",
+  "error2": "Torna all'inizio",
+  "navItem1": "Home",
+  "es": "Spagnolo",
+  "cat": "Catalano",
+  "eusk": "Basco",
+  "en": "Inglese",
+  "fr": "Francese",
+  "it": "Italiano",
+  "saveRoutes": "Salva",
+  "noProductName": "Non abbiamo trovato il nome del prodotto...",
+  "noRiderName": "Non abbiamo trovato il nome di questo conducente..."
 }

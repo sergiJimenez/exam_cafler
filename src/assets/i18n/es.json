@@ -1,11 +1,16 @@
 {
-  "home": "Assignar",
-  "assign1": "Assign pagina!",
-  "assign2": "Atrás",
+  "home": "Asignar",
+  "assign1": "Atrás",
   "error1": "Error!",
-  "error2": "Ir home",
-  "navItem1": "Castellano",
+  "error2": "Ir al Inicio",
+  "navItem1": "Inicio",
+  "es": "Español",
+  "cat": "Catalán",
+  "eusk": "Euskera",
+  "en": "Inglés",
+  "fr": "Francés",
+  "it": "Italiano",
   "saveRoutes": "Guardar",
-  "noProductName": "El producto no tiene nombre...",
+  "noProductName": "No hemos encontrado el nombre del producto...",
   "noRiderName": "No hemos encontrado el nombre de este conductor..."
 }

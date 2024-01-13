@@ -1,23 +1,32 @@
-<div>
-  <div>LOGO</div>
-  <div class="pageButtons">
-    <button *ngFor="let page of pages" [routerLink]="page.route">
-      {{ page.name | translate }}
-    </button>
+<div class="header_bckgrnd">
+  <div class="logo_navitems">
+    <div class="logo" routerLink="/home">
+      <div class="logoText">Aparatos S.L.</div>
+    </div>
+    <div class="pageButtons">
+      <button
+        mat-button
+        class="navItems"
+        *ngFor="let page of pages"
+        [routerLink]="page.route"
+      >
+        {{ page.name | translate }}
+      </button>
+    </div>
   </div>
   <div class="multiButton">
-    <select
-      class="form-control-language"
-      #selectedLang
-      (change)="switchLanguage(selectedLang.value)"
-    >
+    <select #selectedLang (change)="switchLanguage(selectedLang.value)">
       <option
         *ngFor="let language of translate.getLangs()"
         [value]="language"
         [selected]="language === translate.currentLang"
       >
-        {{ language }}
+        {{ language | translate }}
       </option>
     </select>
+    <span class="material-symbols-outlined dark_mode" (click)="toggleDarkTheme()">
+      {{ icon() }}
+      {{ isDarkThemeOn() ? "" : "" }}
+    </span>
   </div>
 </div>

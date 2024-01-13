@@ -35,12 +35,60 @@ $exam_cafler-theme: mat.define-light-theme(
 @include mat.all-component-themes($exam_cafler-theme);
 
 /* You can add global styles to this file, and also import other style files */
+$green-cafler: #59f89c;
+$secondary-green-cafler: #0ebc57;
+$blue-cafler: #0693e3;
+$orange-cafler: #ff6900;
+$yellow-cafler: #fcb900;
+$red-cafler: #cf2e2e;
+$white-cafler: #f7f7f7;
+$black-letters-cafler: #180c2c;
 
+@font-face {
+  font-family: "Roobert Regular";
+  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Light";
+  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-Light.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 html,
 body {
   height: 100%;
+  background-color: $white-cafler;
 }
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roobert Regular", sans-serif;
+  color: $black-letters-cafler;
+  background: var(--background-color);
+}
+
+body.dark-theme {
+  --text-color: #fff;
+  --background-color: #222;
+}
+
+h1,
+p,
+a,
+select,
+div,
+button,
+option {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+button:hover {
+  color: $green-cafler;
+  background-color: var(--background-color);
 }

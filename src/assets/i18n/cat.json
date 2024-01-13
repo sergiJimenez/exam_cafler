@@ -1,11 +1,16 @@
 {
-  "home": "Assignar",
-  "assign1": "Assign pagina!",
-  "assign2": "Enrere",
+  "home": "Inici",
+  "assign1": "Endarrera",
   "error1": "Error!",
-  "error2": "Anar home",
-  "navItem1": "Catalan",
+  "error2": "Anar a l'inici",
+  "navItem1": "Inici",
+  "es": "Espanyol",
+  "cat": "Català",
+  "eusk": "Basc",
+  "en": "Anglès",
+  "fr": "Francès",
+  "it": "Italià",
   "saveRoutes": "Guardar",
-  "noProductName": "El producte no te nom...",
-  "noRiderName": "No em trobat el nom d'aquests conductor..."
+  "noProductName": "No hem trobat el nom del producte...",
+  "noRiderName": "No hem trobat el nom d'aquest conductor..."
 }
