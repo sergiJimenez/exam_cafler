@@ -53,10 +53,11 @@
   vertical-align: middle;
   font-family: "Roobert Light", sans-serif;
   cursor: pointer;
+  transition: color 0.2s ease-in-out;
 }
 
 .navItems:hover {
-  color: $green-cafler;
+  color: $secondary-green-cafler;
 }
 
 select {
@@ -79,6 +80,7 @@ select {
 
 .dark_mode {
   cursor: pointer;
+  transition: color 0.2s ease-in-out;
 }
 
 .dark_mode:hover {
