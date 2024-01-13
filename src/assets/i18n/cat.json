@@ -1,5 +1,9 @@
 {
-  "home": "Inici",
+  "assign": "Asignar",
+  "greetings": "Benvingut",
+  "ordersText": "Comandes per el dia següent:",
+  "Nombre del producto": "Nom del producte",
+  "Precio": "Preu",
   "assign1": "Endarrera",
   "error1": "Error!",
   "error2": "Anar a l'inici",

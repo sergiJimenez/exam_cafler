@@ -1,5 +1,9 @@
 {
-  "home": "Hasiera",
+  "assign": "Esleitu",
+  "greetings": "Ongi etorri",
+  "ordersText": "Hurrengo eguneko eskariak:",
+  "Nombre del producto": "Produktuaren izena",
+  "Precio": "Prezioa",
   "assign1": "Atzera",
   "error1": "Errorea!",
   "error2": "Hasierara joan",
