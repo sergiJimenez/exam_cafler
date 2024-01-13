@@ -1,4 +1,4 @@
-<div cdkDropListGroup>
+<!-- <div cdkDropListGroup>
   <div class="example-container">
     <div *ngIf="optimizedRoutes$ | async as optimizedRoutes">
       <div *ngFor="let productRouteDetail of optimizedRoutes">
@@ -32,7 +32,27 @@
       </div>
     </div>
   </div>
+</div> -->
+<div *ngIf="optimizedRoutes$ | async as optimizedRoutes">
+  <div *ngFor="let productRouteDetail of optimizedRoutes">
+    <h2>Ruta {{ productRouteDetail.routeId }}</h2>
+    <div *ngFor="let productsName of productRouteDetail.productsToDeliver">
+      {{
+        productsName.orderId
+          | productName: ls.getItem("orderList") || []
+          | translate
+      }}
+    </div>
+    <p>
+      Conductor:
+      {{
+        productRouteDetail.driverId
+          | ridersName: ls.getItem("riderList") || []
+          | translate
+      }}
+    </p>
+  </div>
 </div>
+<button>{{ "saveRoutes" | translate }}</button>
 <a routerLink="/home">{{ "assign2" | translate }}</a
 ><br />
-<button>{{ "saveRoutes" | translate }}</button>
