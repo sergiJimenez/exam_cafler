@@ -32,10 +32,11 @@
 
 .responsive-table {
   li {
-    border-radius: 4px;
-    padding: 1em 2em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    padding: 1em 2em;
     margin: 0 0 0.75em 0;
   }
 

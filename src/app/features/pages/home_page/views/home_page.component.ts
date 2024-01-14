@@ -22,6 +22,7 @@ export class HomePageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loadOrders();
+    sessionStorage.removeItem("hasTriedAccess");
   }
 
   public formatNumber(price: number): string {
