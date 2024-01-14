@@ -1,16 +1,36 @@
 import { TestBed } from "@angular/core/testing";
-
 import { LoaderService } from "./loader.service";
 
-describe("LoaderService", () => {
-  let service: LoaderService;
+describe("Loader Service Unit Test", () => {
+  let loaderService: LoaderService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LoaderService);
+    TestBed.configureTestingModule({
+      providers: [LoaderService],
+    });
+
+    loaderService = TestBed.inject(LoaderService);
   });
 
-  it("should be created", () => {
-    expect(service).toBeTruthy();
+  it("SHOULD be created", () => {
+    expect(loaderService).toBeTruthy();
+  });
+
+  it("SHOULD set loading to true", () => {
+    loaderService.setLoading(true);
+    expect(loaderService.getLoading()).toBe(true);
+  });
+
+  it("SHOULD set loading to false", () => {
+    loaderService.setLoading(false);
+    expect(loaderService.getLoading()).toBe(false);
+  });
+
+  it("SHOULD set loading to true and then false", () => {
+    loaderService.setLoading(true);
+    expect(loaderService.getLoading()).toBe(true);
+
+    loaderService.setLoading(false);
+    expect(loaderService.getLoading()).toBe(false);
   });
 });

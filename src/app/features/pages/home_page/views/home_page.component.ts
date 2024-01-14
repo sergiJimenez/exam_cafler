@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 import { OrdersService } from "src/app/features/services/orders.service";
-import { ProductAccessService } from "src/app/core/services/product_access.service";
+import { ProductAccessService } from "src/app/core/services/productAccess.service";
 
 @Component({
   selector: "app-home-page",
