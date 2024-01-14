@@ -1,0 +1,40 @@
+@import "../../../../styles.scss";
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.groupError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.errorText {
+  font-family: "Roobert SemiBold", sans-serif;
+  font-size: xx-large;
+}
+
+.backError {
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: "Roobert SemiBold";
+  background-color: $green-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    color,
+    background-color 0.2s ease-in-out;
+}
+
+.backError:hover {
+  color: $white-cafler;
+  background-color: $orange-cafler;
+}
