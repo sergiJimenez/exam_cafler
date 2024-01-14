@@ -4,10 +4,12 @@ import { TranslateModule } from "@ngx-translate/core";
 import { HeaderComponent } from "./components/header/header.component";
 import { ErrorComponent } from "./views/error/error.component";
 import { RouterModule } from "@angular/router";
+import { DialogComponent } from "./components/dialog/dialog.component";
+import { MaterialModule } from "./material.module";
 
 @NgModule({
-  declarations: [HeaderComponent, ErrorComponent],
-  imports: [CommonModule, TranslateModule, RouterModule],
-  exports: [HeaderComponent, TranslateModule],
+  declarations: [HeaderComponent, ErrorComponent, DialogComponent],
+  imports: [CommonModule, TranslateModule, RouterModule, MaterialModule],
+  exports: [HeaderComponent, TranslateModule, DialogComponent, MaterialModule],
 })
 export class SharedModule {}
