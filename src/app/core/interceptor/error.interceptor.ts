@@ -16,11 +16,16 @@ import {
   finalize,
 } from "rxjs/operators";
 import { LoaderService } from "../services/loader.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   private maxRetries = 1;
-  constructor(private loading: LoaderService) {}
+
+  constructor(
+    private loading: LoaderService,
+    private snackBar: MatSnackBar
+  ) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -35,10 +40,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             if (error instanceof HttpErrorResponse && error.status !== 500) {
               throw error;
             }
-            alert(`Error HTTP: ${error.status}`);
+            this.openSnackBar(`Error HTTP: ${error.status}`);
           }),
           delayWhen(() => {
-            alert("Retrying...");
+            this.openSnackBar("Retrying...");
             return timer(1000);
           }),
           take(this.maxRetries)
@@ -46,7 +51,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       ),
       catchError((error: HttpErrorResponse) => {
         if (error.status >= 400 && error.status < 600) {
-          alert(`Error HTTP: ${error.status}`);
+          this.openSnackBar(`Error HTTP: ${error.status}`);
           return throwError(
             () => new Error("Ocurrió un error en la solicitud.")
           );
@@ -57,5 +62,12 @@ export class ErrorInterceptor implements HttpInterceptor {
         this.loading.setLoading(false);
       })
     );
+  }
+
+  private openSnackBar(message: string): void {
+    this.snackBar.open(message, "Cerrar", {
+      duration: 3000,
+      panelClass: ["cafler-snackbar"],
+    });
   }
 }

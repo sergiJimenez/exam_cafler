@@ -43,6 +43,7 @@ $yellow-cafler: #fcb900;
 $red-cafler: #cf2e2e;
 $white-cafler: #f7f7f7;
 $black-letters-cafler: #180c2c;
+$grey: #222;
 
 @font-face {
   font-family: "Roobert Regular";
@@ -109,4 +110,13 @@ option {
 button:hover {
   color: $green-cafler;
   background-color: var(--background-color);
+}
+
+.mat-mdc-snack-bar-container {
+  &.cafler-snackbar {
+    --mdc-snackbar-supporting-text-font: "Roobert Regular";
+    --mdc-snackbar-container-color: #222;
+    --mdc-snackbar-supporting-text-color: #f7f7f7;
+    --mat-snack-bar-button-color: #cf2e2e;
+  }
 }
