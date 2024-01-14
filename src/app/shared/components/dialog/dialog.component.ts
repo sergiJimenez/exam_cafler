@@ -25,10 +25,6 @@ export class DialogComponent implements OnInit {
     this.routes = (this.ls.getItem("routes") as IOptimizedRoutes[]) || [];
   }
 
-  private onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   public moveOrderToRoute(
     orderId: string,
     fromRouteId: string,
@@ -61,6 +57,10 @@ export class DialogComponent implements OnInit {
     }
 
     this.moveProductBetweenRoutes(orderId, fromRoute, toRoute);
+  }
+
+  private onNoClick(): void {
+    this.dialogRef.close();
   }
 
   private areRoutesSame(routeId1: string, routeId2: string): boolean {

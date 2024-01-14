@@ -1,6 +1,6 @@
 import { inject } from "@angular/core";
 import { Router, CanActivateFn } from "@angular/router";
-import { ProductAccessService } from "../services/product_access.service";
+import { ProductAccessService } from "../services/productAccess.service";
 import { RoutesConst } from "../constants/routes";
 
 export const ProductDetailsGuard: CanActivateFn = () => {
