@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { LocalStorageService } from "src/app/core/services/localStorage.service";
 import { IOptimizedRoutes } from "../../interfaces/optimized-routes.interface";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-dialog",
@@ -16,7 +17,8 @@ export class DialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string,
-    private ls: LocalStorageService
+    private ls: LocalStorageService,
+    private snackBar: MatSnackBar
   ) {}
 
   public ngOnInit(): void {
@@ -33,7 +35,7 @@ export class DialogComponent implements OnInit {
     toRouteId: string
   ): void {
     if (this.areRoutesSame(fromRouteId, toRouteId)) {
-      alert(
+      this.openSnackBar(
         "La ruta de origen y destino es la misma. No se puede cambiar."
       );
       return;
@@ -43,7 +45,7 @@ export class DialogComponent implements OnInit {
       this.getRouteById(fromRouteId);
 
     if (!this.isProductInRoute(orderId, fromRoute)) {
-      alert(
+      this.openSnackBar(
         "El producto no proviene de la ruta de origen. No se puede cambiar."
       );
       return;
@@ -52,7 +54,7 @@ export class DialogComponent implements OnInit {
     const toRoute: IOptimizedRoutes | undefined = this.getRouteById(toRouteId);
 
     if (this.isProductInRoute(orderId, toRoute)) {
-      alert(
+      this.openSnackBar(
         "El producto ya está en la ruta de destino. No se puede cambiar."
       );
       return;
@@ -94,7 +96,14 @@ export class DialogComponent implements OnInit {
       localStorage.setItem("routes", JSON.stringify(this.routes));
       this.onNoClick();
     } else {
-      alert("Ruta de origen o destino no encontrada");
+      this.openSnackBar("Ruta de origen o destino no encontrada");
     }
+  }
+
+  private openSnackBar(message: string): void {
+    this.snackBar.open(message, "Cerrar", {
+      duration: 3000,
+      panelClass: ["cafler-snackbar"],
+    });
   }
 }
