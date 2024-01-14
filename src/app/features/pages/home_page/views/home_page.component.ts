@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   public orders$!: Observable<IOrders[]>;
   public dataSource = this.orders$;
   public nameColumn = ["ID", "Nombre del producto", "Precio"];
-  public username: string = "Sergi";
+  public username: string = "Aparatos S.L.";
 
   constructor(
     private ordersService: OrdersService,

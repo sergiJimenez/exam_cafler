@@ -46,16 +46,48 @@ $black-letters-cafler: #180c2c;
 $grey: #222;
 
 @font-face {
-  font-family: "Roobert Regular";
-  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-Regular.woff2")
+  font-family: "Roobert Light";
+  src: url("./assets/fonts/RoobertTRIAL-Light.woff2")
     format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roobert Light";
-  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-Light.woff2")
+  font-family: "Roobert Light Italic";
+  src: url("./assets/fonts/RoobertTRIAL-LightItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Medium";
+  src: url("./assets/fonts/RoobertTRIAL-Medium.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Medium Italic";
+  src: url("./assets/fonts/RoobertTRIAL-MediumItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Regular";
+  src: url("./assets/fonts/RoobertTRIAL-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Regular Italic";
+  src: url("./assets/fonts/RoobertTRIAL-RegularItalic.woff2")
     format("woff2");
   font-weight: normal;
   font-style: normal;
@@ -63,7 +95,7 @@ $grey: #222;
 
 @font-face {
   font-family: "Roobert SemiBold";
-  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-SemiBold.woff2")
+  src: url("./assets/fonts/RoobertTRIAL-SemiBold.woff2")
     format("woff2");
   font-weight: normal;
   font-style: normal;
@@ -71,7 +103,7 @@ $grey: #222;
 
 @font-face {
   font-family: "Roobert SemiBold Italic";
-  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-SemiBoldItalic.woff2")
+  src: url("./assets/fonts/RoobertTRIAL-SemiBoldItalic.woff2")
     format("woff2");
   font-weight: normal;
   font-style: normal;
