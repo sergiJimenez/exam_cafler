@@ -50,6 +50,7 @@ export class AssignPageComponent implements OnInit {
   public improvedRoutes() {}
 
   public cleanUpdatedRules(): void {
+    sessionStorage.setItem("hasTriedAccess", "true");
     this.ls.removeItem("routes");
     location.reload();
   }

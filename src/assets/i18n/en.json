@@ -1,5 +1,9 @@
 {
-  "home": "Assign",
+  "assign": "Assign",
+  "greetings": "Welcome",
+  "ordersText": "Orders for the next day:",
+  "Nombre del producto": "Product name",
+  "Precio": "Price",
   "assign1": "Back",
   "error1": "Error!",
   "error2": "Go to Home",

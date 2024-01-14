@@ -59,6 +59,23 @@ $black-letters-cafler: #180c2c;
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Roobert SemiBold";
+  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-SemiBold.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert SemiBold Italic";
+  src: url("./assets/fonts/DP_roobert_TRIAL/RoobertTRIAL-SemiBoldItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -80,6 +97,7 @@ body.dark-theme {
 h1,
 p,
 a,
+li,
 select,
 div,
 button,

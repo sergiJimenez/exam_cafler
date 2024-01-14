@@ -1,5 +1,9 @@
 {
-  "home": "Asignar",
+  "assign": "Asignar",
+  "greetings": "Bienvenido",
+  "ordersText": "Pedidos para el día siguiente:",
+  "Nombre del producto": "Nombre del producto",
+  "Precio": "Precio",
   "assign1": "Atrás",
   "error1": "Error!",
   "error2": "Ir al Inicio",

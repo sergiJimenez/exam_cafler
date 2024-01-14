@@ -1,11 +1,37 @@
-Pedidos para el día siguiente:
-<div *ngIf="orders$ | async as orders">
-  <div *ngFor="let order of orders">
-    <div>
-      <a> {{ order.productName }} </a>
-    </div>
-  </div>
+<svg class="decorator"></svg>
+<div class="greetingsMessage">
+  <span class="welcome">{{ "greetings" | translate }}</span
+  ><span class="username">{{ username }}</span>
 </div>
-<a routerLink="/assign" (click)="allowAccess()">
-  {{ "home" | translate }}
-</a>
+<div class="container" *ngIf="orders$ | async as orders; else noData">
+  <div class="ordersText">{{ "ordersText" | translate }}</div>
+  <div class="responsive-table">
+    <li class="table-header">
+      <span class="col col-1" *ngFor="let nameColumns of nameColumn">
+        {{ nameColumns | translate }}
+      </span>
+    </li>
+    <li
+      class="table-row"
+      *ngFor="let order of orders"
+    >
+      <div class="col col-1">
+        {{ order.orderId }}
+      </div>
+      <div class="col col-1">{{ order.productName }}</div>
+      <div class="col col-1">{{ formatNumber(order.price) }}€</div>
+    </li>
+  </div>
+  <a
+    class="assignButton"
+    routerLink="/assign"
+    (click)="allowAccess()"
+    *ngIf="(orders$ | async)?.length"
+    matTooltip="Asignar productos"
+  >
+    {{ "assign" | translate }}
+  </a>
+</div>
+<ng-template #noData>
+  <div>{{ "noData" | translate }}</div>
+</ng-template>

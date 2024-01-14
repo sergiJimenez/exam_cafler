@@ -6,9 +6,14 @@ import { RoutesConst } from "../constants/routes";
 export const ProductDetailsGuard: CanActivateFn = () => {
   const productAccessService = inject(ProductAccessService);
   const router = inject(Router);
-  if (productAccessService.canAccess()) {
+
+  const hasTriedAccess: string | null =
+    sessionStorage.getItem("hasTriedAccess");
+
+  if (hasTriedAccess || productAccessService.canAccess()) {
     return true;
   } else {
+    sessionStorage.setItem("hasTriedAccess", "true");
     return router.createUrlTree([RoutesConst.ERROR]);
   }
 };

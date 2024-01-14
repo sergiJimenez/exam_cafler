@@ -5,7 +5,6 @@
     </div>
     <div class="pageButtons">
       <button
-        mat-button
         class="navItems"
         *ngFor="let page of pages"
         [routerLink]="page.route"
@@ -24,7 +23,10 @@
         {{ language | translate }}
       </option>
     </select>
-    <span class="material-symbols-outlined dark_mode" (click)="toggleDarkTheme()">
+    <span
+      class="material-symbols-outlined dark_mode"
+      (click)="toggleDarkTheme()"
+    >
       {{ icon() }}
       {{ isDarkThemeOn() ? "" : "" }}
     </span>

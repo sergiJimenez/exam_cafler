@@ -11,6 +11,9 @@ import { ProductAccessService } from "src/app/core/services/product_access.servi
 })
 export class HomePageComponent implements OnInit {
   public orders$!: Observable<IOrders[]>;
+  public dataSource = this.orders$;
+  public nameColumn = ["ID", "Nombre del producto", "Precio"];
+  public username: string = "Sergi";
 
   constructor(
     private ordersService: OrdersService,
@@ -19,6 +22,14 @@ export class HomePageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loadOrders();
+    sessionStorage.removeItem("hasTriedAccess");
+  }
+
+  public formatNumber(price: number): string {
+    return price.toLocaleString("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    });
   }
 
   public allowAccess(): void {
