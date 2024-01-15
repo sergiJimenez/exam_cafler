@@ -102,12 +102,15 @@
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
   transition:
     color,
-    background-color 0.2s ease-in-out;
+    background-color,
+    transform,
+    0.2s ease-in-out;
 }
 
 .assignButton:hover {
-  color: $white-cafler;
-  background-color: $blue-cafler;
+  color: $black-letters-cafler;
+  background-color: $yellow-cafler;
+  transform: translateY(-5px);
 }
 
 .decorator {

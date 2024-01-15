@@ -4,7 +4,7 @@
   "ordersText": "Comandes per el dia següent:",
   "Nombre del producto": "Nom del producte",
   "Precio": "Preu",
-  "assign1": "Endarrera",
+  "backButton": "Endarrera",
   "error1": "Algo no funciona correctament...",
   "error2": "Anar a l'inici",
   "navItem1": "Inici",
@@ -14,7 +14,15 @@
   "en": "Anglès",
   "fr": "Francès",
   "it": "Italià",
+  "assignTitle1": "Assignació de",
+  "assignTitle2": "Productes",
+  "routeTitleAssign": "Ruta",
+  "driverAssign": "Conductor:",
   "saveRoutes": "Guardar",
   "noProductName": "No hem trobat el nom del producte...",
-  "noRiderName": "No hem trobat el nom d'aquest conductor..."
+  "noRiderName": "No hem trobat el nom d'aquest conductor...",
+  "tooltipHome1": "Asignar productes",
+  "tooltipAssign1": "Canviar la ruta del producte",
+  "tooltipAssign2": "Restaurar els valors predeterminats",
+  "tooltipAssign3": "Guardar"
 }

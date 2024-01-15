@@ -11,10 +11,7 @@
         {{ nameColumns | translate }}
       </span>
     </li>
-    <li
-      class="table-row"
-      *ngFor="let order of orders"
-    >
+    <li class="table-row" *ngFor="let order of orders">
       <div class="col col-1">
         {{ order.orderId }}
       </div>
@@ -27,7 +24,7 @@
     routerLink="/assign"
     (click)="allowAccess()"
     *ngIf="(orders$ | async)?.length"
-    matTooltip="Asignar productos"
+    [matTooltip]="'tooltipHome1' | translate"
   >
     {{ "assign" | translate }}
   </a>
