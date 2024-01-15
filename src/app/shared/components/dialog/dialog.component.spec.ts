@@ -4,6 +4,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DialogComponent } from "./dialog.component";
 import { LocalStorageService } from "src/app/core/services/localStorage.service";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 describe("DialogComponent", () => {
   let component: DialogComponent;
@@ -12,10 +14,15 @@ describe("DialogComponent", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DialogComponent],
-      imports: [BrowserAnimationsModule],
+      imports: [
+        BrowserAnimationsModule,
+        TranslateModule.forRoot(),
+        MatTooltipModule,
+      ],
       providers: [
         { provide: MatDialogRef, useValue: { close: () => {} } },
         { provide: MAT_DIALOG_DATA, useValue: {} },
+        TranslateService,
         LocalStorageService,
         MatSnackBar,
       ],

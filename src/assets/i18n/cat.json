@@ -25,5 +25,8 @@
   "tooltipAssign1": "Canviar la ruta del producte",
   "tooltipAssign2": "Restaurar els valors predeterminats",
   "tooltipAssign3": "Guardar",
-  "tooltipAssign4": "Millorar les rutes de distribució"
+  "tooltipAssign4": "Millorar les rutes de distribució",
+  "dialog0": "Reasignació del producte",
+  "dialog1": "A quina ruta vols reassignar aquest producte?",
+  "dialog2": "Aplicar els canvis"
 }

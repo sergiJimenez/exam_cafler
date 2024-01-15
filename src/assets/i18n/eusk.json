@@ -25,5 +25,8 @@
   "tooltipAssign1": "Produktuaren bide aldatu",
   "tooltipAssign2": "Berezko balioak leheneratu",
   "tooltipAssign3": "Gorde",
-  "tooltipAssign4": "Banaketaren ibilbideak hobetu"
+  "tooltipAssign4": "Banaketaren ibilbideak hobetu",
+  "dialog0": "Produktuaren berrantolaketa",
+  "dialog1": "Zer bidea esleitu nahi diozu produktu honi?",
+  "dialog2": "Aldaketak aplikatu"
 }

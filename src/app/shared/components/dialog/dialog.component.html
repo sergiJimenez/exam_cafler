@@ -1,17 +1,28 @@
-<div class="container">
-  <mat-form-field name="final_route" *ngIf="routes.length > 0">
-    <mat-label>Select final route #</mat-label>
-    <mat-select disableRipple [(value)]="toRoute">
-      <mat-option *ngFor="let route of routes" value="{{ route.routeId }}">{{
-        route.routeId
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button
-    mat-flat-button
-    color="accent"
-    (click)="moveOrderToRoute(data.orderId, data.fromRoute, toRoute)"
-  >
-    Apply Change
-  </button>
+<div class="dialogContainer">
+  <div class="closeGroup">
+    <button class="closeDialog" (click)="onNoClick()">
+      <span class="material-symbols-outlined"> close </span>
+    </button>
+  </div>
+  <div class="dialogGroup1">
+    <div class="dialogTitle">{{ "dialog0" | translate }}</div>
+    <mat-form-field name="final_route" *ngIf="routes.length > 0">
+      <mat-label>{{ "dialog1" | translate }}</mat-label>
+      <mat-select disableRipple [(value)]="toRoute">
+        <mat-option *ngFor="let route of routes" value="{{ route.routeId }}">{{
+          route.routeId
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="saveAsDialog">
+    {{ "dialog2" | translate }}
+    <button
+      class="applyChangesDialog"
+      [matTooltip]="'dialog2' | translate"
+      (click)="moveOrderToRoute(data.orderId, data.fromRoute, toRoute)"
+    >
+      <span class="material-symbols-outlined"> save_as </span>
+    </button>
+  </div>
 </div>

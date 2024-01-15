@@ -1,7 +1,79 @@
-.container {
-  display: grid;
+@import "../../../../styles.scss";
+
+.dialogContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 4em 4em 2em 4em;
+  background-color: $grey;
+}
+
+.dialogGroup1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 8em 0;
+}
+
+.dialogTitle {
+  color: $green-cafler;
+  font-family: "Roobert SemiBold";
+  font-size: x-large;
+  margin: 0 0 1.5em 0;
+}
+
+.saveAsDialog {
+  color: $green-cafler;
+  font-family: "Roobert Regular Italic";
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: small;
+  align-items: center;
+  gap: 1em;
+}
+
+.applyChangesDialog {
+  display: flex;
+  align-items: center;
+  border: 0px;
+  border-radius: 20%;
+  padding: 0.5em;
+  background-color: $green-cafler;
+  color: $black-letters-cafler;
+  transition:
+    transform,
+    color,
+    0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.applyChangesDialog:hover {
+  box-shadow: 0px 0px 9px 0px rgba(89, 248, 156, 0.5);
+}
+
+.closeGroup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.closeDialog {
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  border: 0px;
+  border-radius: 100%;
+  padding: 0.5em;
+  background-color: $red-cafler;
+  color: $black-letters-cafler;
+  transition:
+    color,
+    0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.closeDialog:hover {
+  color: $red-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(207, 46, 46, 1);
 }

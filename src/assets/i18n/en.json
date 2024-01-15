@@ -25,5 +25,8 @@
   "tooltipAssign1": "Change the product route",
   "tooltipAssign2": "Restore default values",
   "tooltipAssign3": "Save",
-  "tooltipAssign4": "Improve delivery routes"
+  "tooltipAssign4": "Improve delivery routes",
+  "dialog0": "Product reassignment",
+  "dialog1": "Which route do you want to reassign this product to?",
+  "dialog2": "Apply changes"
 }
