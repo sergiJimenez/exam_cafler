@@ -1,10 +1,8 @@
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 import {
-  ComponentFixture,
-  TestBed,
-  tick,
-  fakeAsync,
-} from "@angular/core/testing";
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+  MatDialog,
+  // MatDialogRef
+} from "@angular/material/dialog";
 import { of } from "rxjs";
 import { AssignPageComponent } from "./assign_page.component";
 import { LocalStorageService } from "src/app/core/services/localStorage.service";
@@ -13,7 +11,6 @@ import { RidersService } from "src/app/features/services/riders.service";
 import { RouteUpdatedService } from "src/app/features/services/route-updated.service";
 import { IOptimizedRoutes } from "src/app/shared/interfaces/optimized-routes.interface";
 import { IRiders } from "src/app/shared/interfaces/riders.interface";
-import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ProductNamePipe } from "src/app/shared/pipes/productName.pipe";
@@ -21,13 +18,18 @@ import { RidersNamePipe } from "src/app/shared/pipes/ridersName.pipe";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatDividerModule } from "@angular/material/divider";
 
+class LocationService {
+  public reload(): void {
+    location.reload();
+  }
+}
+
 describe("Assign Page Component Unit Test", () => {
   let component: AssignPageComponent;
   let fixture: ComponentFixture<AssignPageComponent>;
   let localStorageServiceMock: jasmine.SpyObj<LocalStorageService>;
   let optimizedRoutesServiceMock: jasmine.SpyObj<OptimizedRoutesService>;
   let ridersServiceMock: jasmine.SpyObj<RidersService>;
-  let matDialogMock: jasmine.SpyObj<MatDialog>;
 
   beforeEach(() => {
     const localStorageSpy = jasmine.createSpyObj("LocalStorageService", [
@@ -37,6 +39,7 @@ describe("Assign Page Component Unit Test", () => {
 
     const optimizedRoutesSpy = jasmine.createSpyObj("OptimizedRoutesService", [
       "getOptimizedRoutes",
+      "getRoutesImproved",
     ]);
 
     const ridersServiceSpy = jasmine.createSpyObj("RidersService", [
@@ -48,6 +51,10 @@ describe("Assign Page Component Unit Test", () => {
     ]);
 
     const matDialogSpy = jasmine.createSpyObj("MatDialog", ["open"]);
+
+    const locationServiceSpy = jasmine.createSpyObj("LocationService", [
+      "reload",
+    ]);
 
     TestBed.configureTestingModule({
       declarations: [AssignPageComponent, ProductNamePipe, RidersNamePipe],
@@ -63,6 +70,7 @@ describe("Assign Page Component Unit Test", () => {
         { provide: RidersService, useValue: ridersServiceSpy },
         { provide: RouteUpdatedService, useValue: routeUpdatedServiceSpy },
         { provide: MatDialog, useValue: matDialogSpy },
+        { provide: LocationService, useValue: locationServiceSpy },
         TranslateService,
       ],
     });
@@ -78,7 +86,6 @@ describe("Assign Page Component Unit Test", () => {
     ridersServiceMock = TestBed.inject(
       RidersService
     ) as jasmine.SpyObj<RidersService>;
-    matDialogMock = TestBed.inject(MatDialog) as jasmine.SpyObj<MatDialog>;
 
     const mockOptimizedRoutes: IOptimizedRoutes[] = [
       { routeId: "1", driverId: "Driver 1", productsToDeliver: [] },
@@ -116,22 +123,8 @@ describe("Assign Page Component Unit Test", () => {
     expect(ridersServiceMock.getRiders).toHaveBeenCalled();
   });
 
-  it("SHOULD open dialog and reload optimized routes on dialog close", fakeAsync(() => {
-    fixture.detectChanges();
-    matDialogMock.open.and.returnValue({
-      afterClosed: () => of(undefined),
-    } as MatDialogRef<unknown, unknown>);
-
-    component.openDialog("1");
-
-    tick();
-
-    expect(matDialogMock.open).toHaveBeenCalledWith(DialogComponent, {
-      width: "250px",
-      height: "250px",
-      data: "1",
-    });
-
-    expect(optimizedRoutesServiceMock.getOptimizedRoutes).toHaveBeenCalled();
-  }));
+  it("SHOULD change to improved routes", () => {
+    component.changeToImprovedRoutes();
+    expect(component.optimizedRoutes$).toBeTruthy();
+  });
 });

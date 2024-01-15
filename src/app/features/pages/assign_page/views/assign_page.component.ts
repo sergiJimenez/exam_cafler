@@ -8,6 +8,7 @@ import { RidersService } from "src/app/features/services/riders.service";
 import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { RouteUpdatedService } from "src/app/features/services/route-updated.service";
+import { IOrders } from "src/app/shared/interfaces/orders.interface";
 
 @Component({
   selector: "app-assign-page",
@@ -18,7 +19,7 @@ export class AssignPageComponent implements OnInit {
   public optimizedRoutes$!: Observable<IOptimizedRoutes[]>;
   public optimizedRoutesDetails: IOptimizedRoutes | undefined;
   public riders$!: Observable<IRiders[]>;
-  private data: string = "";
+  public riders!: IRiders[];
 
   constructor(
     public ls: LocalStorageService,
@@ -37,7 +38,7 @@ export class AssignPageComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: "250px",
       height: "250px",
-      data: orderId,
+      data: { orderId: orderId, fromRoute: this.getRootRoute(orderId) },
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -47,7 +48,9 @@ export class AssignPageComponent implements OnInit {
     });
   }
 
-  public improvedRoutes() {}
+  public changeToImprovedRoutes(): void {
+    this.optimizedRoutes$ = of(this.improvedRoutes());
+  }
 
   public cleanUpdatedRules(): void {
     sessionStorage.setItem("hasTriedAccess", "true");
@@ -69,5 +72,19 @@ export class AssignPageComponent implements OnInit {
 
   private loadRiders(): void {
     this.ridersService.getRiders().subscribe();
+  }
+
+  private getRootRoute(orderId: string): string {
+    const routes = this.ls.getItem("routes") as IOptimizedRoutes[];
+    return routes.find((route) =>
+      route.productsToDeliver.find((order) => order.orderId == orderId)
+    )?.routeId as string;
+  }
+
+  private improvedRoutes(): IOptimizedRoutes[] {
+    return this.optimizedRoutes.getRoutesImproved(
+      this.ls.getItem("orderList") as IOrders[],
+      this.ls.getItem("riderList") as IRiders[]
+    );
   }
 }

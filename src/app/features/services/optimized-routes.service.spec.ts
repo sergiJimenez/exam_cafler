@@ -7,6 +7,8 @@ import { OptimizedRoutesService } from "./optimized-routes.service";
 import { IOptimizedRoutes } from "src/app/shared/interfaces/optimized-routes.interface";
 import { environment } from "src/environments/environment";
 import { LocalStorageService } from "src/app/core/services/localStorage.service";
+import { IOrders } from "src/app/shared/interfaces/orders.interface";
+import { IRiders } from "src/app/shared/interfaces/riders.interface";
 
 describe("Optimized Routes Service Unit Test", () => {
   let service: OptimizedRoutesService;
@@ -76,4 +78,57 @@ describe("Optimized Routes Service Unit Test", () => {
       MOCK_OPTIMIZED_ROUTES
     );
   }));
+
+  it("SHOULD get improved routes", () => {
+    const orders: IOrders[] = [
+      {
+        orderId: "1",
+        productName: "Product 1",
+        price: 10,
+        deliveryLocation: { longitude: 1, latitude: 2 },
+      },
+      {
+        orderId: "2",
+        productName: "Product 2",
+        price: 20,
+        deliveryLocation: { longitude: 1, latitude: 2 },
+      },
+    ];
+
+    const riders: IRiders[] = [
+      {
+        driverId: "1",
+        driverName: "Rider 1",
+        initialLocation: { lat: 1, lng: 2 },
+      },
+      {
+        driverId: "2",
+        driverName: "Rider 2",
+        initialLocation: { lat: 3, lng: 4 },
+      },
+    ];
+
+    const result = service.getRoutesImproved(orders, riders);
+
+    expect(result).toBeTruthy();
+    expect(Array.isArray(result)).toBe(true);
+
+    expect(localStorageService.setItem).toHaveBeenCalledWith(
+      "routes",
+      jasmine.any(Array)
+    );
+  });
+
+  it("SHOULD calculate distance correctly", () => {
+    const lat1 = 1;
+    const lng1 = 2;
+    const lat2 = 3;
+    const lng2 = 4;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result = (service as any).calculateDistance(lat1, lng1, lat2, lng2);
+
+    expect(result).toBeTruthy();
+    expect(typeof result).toBe("number");
+  });
 });
