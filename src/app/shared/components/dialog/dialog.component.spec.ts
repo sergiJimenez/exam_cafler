@@ -1,81 +1,99 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
-import { LocalStorageService } from "src/app/core/services/localStorage.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DialogComponent } from "./dialog.component";
-import { IOptimizedRoutes } from "../../interfaces/optimized-routes.interface";
+import { LocalStorageService } from "src/app/core/services/localStorage.service";
 
-describe("Dialog Component Unit Test", () => {
+describe("DialogComponent", () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
-  let localStorageServiceMock: jasmine.SpyObj<LocalStorageService>;
-  let snackBarMock: jasmine.SpyObj<MatSnackBar>;
 
   beforeEach(() => {
-    const matDialogRefSpy = jasmine.createSpyObj("MatDialogRef", ["close"]);
-    const localStorageServiceSpy = jasmine.createSpyObj("LocalStorageService", [
-      "getItem",
-    ]);
-    const snackBarSpy = jasmine.createSpyObj("MatSnackBar", ["open"]);
-
     TestBed.configureTestingModule({
       declarations: [DialogComponent],
+      imports: [BrowserAnimationsModule],
       providers: [
-        { provide: MatDialogRef, useValue: matDialogRefSpy },
+        { provide: MatDialogRef, useValue: { close: () => {} } },
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: LocalStorageService, useValue: localStorageServiceSpy },
-        { provide: MatSnackBar, useValue: snackBarSpy },
+        LocalStorageService,
+        MatSnackBar,
       ],
-      imports: [MatSnackBarModule],
     });
 
     fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
-    localStorageServiceMock = TestBed.inject(
-      LocalStorageService
-    ) as jasmine.SpyObj<LocalStorageService>;
-    snackBarMock = TestBed.inject(MatSnackBar) as jasmine.SpyObj<MatSnackBar>;
-
-    component.data = "mockedOrderId";
+    fixture.detectChanges();
   });
 
   it("SHOULD create", () => {
     expect(component).toBeTruthy();
   });
 
-  it("SHOULD initialize with routes from local storage", () => {
-    const mockRoutes: IOptimizedRoutes[] = [
-      { routeId: "1", driverId: "Driver 1", productsToDeliver: [] },
-    ];
-    localStorageServiceMock.getItem.and.returnValue(mockRoutes);
-    localStorageServiceMock.getItem.and.returnValue(mockRoutes);
+  it("SHOULD initialize routes", () => {
+    const mockLocalStorageService = TestBed.inject(LocalStorageService);
+    spyOn(mockLocalStorageService, "getItem").and.returnValue([
+      { routeId: "1", productsToDeliver: [] },
+      { routeId: "2", productsToDeliver: [] },
+    ]);
 
+    component.data = { orderId: "123", fromRoute: "2" };
     component.ngOnInit();
 
-    expect(component.routes).toEqual(mockRoutes);
+    expect(component.routes.length).toBe(1);
   });
 
   it("SHOULD move order to route", () => {
-    const mockOrder = { orderId: "1" };
-    const mockFromRoute = {
-      routeId: "fromRoute",
-      productsToDeliver: [mockOrder],
-    };
-    const mockToRoute = { routeId: "toRoute", productsToDeliver: [] };
+    const orderId = "123";
+    const fromRouteId = "1";
+    const toRouteId = "2";
 
-    localStorageServiceMock.getItem.and.returnValue([
-      mockFromRoute,
-      mockToRoute,
+    const mockLocalStorageService = TestBed.inject(LocalStorageService);
+    spyOn(mockLocalStorageService, "getItem").and.returnValue([
+      { routeId: fromRouteId, productsToDeliver: [{ orderId }] },
+      { routeId: toRouteId, productsToDeliver: [] },
     ]);
 
-    snackBarMock.open.and.callThrough();
+    spyOn(localStorage, "setItem");
 
-    component.moveOrderToRoute(
-      mockOrder.orderId,
-      mockFromRoute.routeId,
-      mockToRoute.routeId
+    component.moveOrderToRoute(orderId, fromRouteId, toRouteId);
+
+    expect(localStorage.setItem).toHaveBeenCalled();
+  });
+
+  it("SHOULD handle destination route not found", () => {
+    spyOn(component, "openSnackBar");
+    const orderId = "123";
+    const fromRouteId = "1";
+    const toRouteId = "2";
+
+    const mockLocalStorageService = TestBed.inject(LocalStorageService);
+    spyOn(mockLocalStorageService, "getItem").and.returnValue([
+      { routeId: fromRouteId, productsToDeliver: [{ orderId }] },
+    ]);
+
+    component.moveOrderToRoute(orderId, fromRouteId, toRouteId);
+
+    expect(component.openSnackBar).toHaveBeenCalledWith(
+      "Ruta de destino no encontrada"
     );
+  });
 
-    expect(snackBarMock.open).toHaveBeenCalled();
+  it("SHOULD handle source route not found", () => {
+    spyOn(component, "openSnackBar");
+    const orderId = "123";
+    const fromRouteId = "1";
+    const toRouteId = "2";
+
+    const mockLocalStorageService = TestBed.inject(LocalStorageService);
+    spyOn(mockLocalStorageService, "getItem").and.returnValue([
+      { routeId: toRouteId, productsToDeliver: [] },
+    ]);
+
+    component.moveOrderToRoute(orderId, fromRouteId, toRouteId);
+
+    expect(component.openSnackBar).toHaveBeenCalledWith(
+      "Ruta de origen no encontrada"
+    );
   });
 });

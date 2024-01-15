@@ -8,7 +8,6 @@ import { RidersService } from "src/app/features/services/riders.service";
 import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { RouteUpdatedService } from "src/app/features/services/route-updated.service";
-import { OrdersService } from "src/app/features/services/orders.service";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 
 @Component({
@@ -18,18 +17,16 @@ import { IOrders } from "src/app/shared/interfaces/orders.interface";
 })
 export class AssignPageComponent implements OnInit {
   public optimizedRoutes$!: Observable<IOptimizedRoutes[]>;
-  public riders$!: Observable<IRiders[]>;
-  public orders$!: Observable<IOrders[]> = this.ordersService.getOrders();
   public optimizedRoutesDetails: IOptimizedRoutes | undefined;
-  private data: string = "";
+  public riders$!: Observable<IRiders[]>;
+  public riders!: IRiders[];
 
   constructor(
     public ls: LocalStorageService,
     public dialog: MatDialog,
     private ridersService: RidersService,
     private optimizedRoutes: OptimizedRoutesService,
-    private routeUpdated: RouteUpdatedService,
-    private ordersService: OrdersService
+    private routeUpdated: RouteUpdatedService
   ) {}
 
   public ngOnInit(): void {
@@ -41,7 +38,7 @@ export class AssignPageComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: "250px",
       height: "250px",
-      data: orderId,
+      data: { orderId: orderId, fromRoute: this.getRootRoute(orderId) },
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -51,8 +48,8 @@ export class AssignPageComponent implements OnInit {
     });
   }
 
-  public improvedRoutes(): void {
-    this.optimizedRoutes.getRoutesImproved(this.orders$, this.riders$);
+  public changeToImprovedRoutes(): void {
+    this.optimizedRoutes$ = of(this.improvedRoutes());
   }
 
   public cleanUpdatedRules(): void {
@@ -75,5 +72,19 @@ export class AssignPageComponent implements OnInit {
 
   private loadRiders(): void {
     this.ridersService.getRiders().subscribe();
+  }
+
+  private getRootRoute(orderId: string): string {
+    const routes = this.ls.getItem("routes") as IOptimizedRoutes[];
+    return routes.find((route) =>
+      route.productsToDeliver.find((order) => order.orderId == orderId)
+    )?.routeId as string;
+  }
+
+  private improvedRoutes(): IOptimizedRoutes[] {
+    return this.optimizedRoutes.getRoutesImproved(
+      this.ls.getItem("orderList") as IOrders[],
+      this.ls.getItem("riderList") as IRiders[]
+    );
   }
 }

@@ -33,31 +33,46 @@ export class OptimizedRoutesService {
   public getRoutesImproved(
     orders: IOrders[],
     riders: IRiders[]
-  ): Map<string, string> {
-    const asignaciones: Map<string, string> = new Map();
-
-    orders.forEach((order) => {
-      let distanciaMinima = Number.MAX_VALUE;
-      let riderAsignado = "";
-
-      riders.forEach((rider) => {
-        const distancia = this.calculateDistance(
-          order.deliveryLocation.latitude,
-          order.deliveryLocation.longitude,
-          rider.initialLocation.lat,
-          rider.initialLocation.lng
-        );
-
-        if (distancia < distanciaMinima) {
-          distanciaMinima = distancia;
-          riderAsignado = rider.driverId;
-        }
-      });
-
-      asignaciones.set(order.orderId, riderAsignado);
+  ): IOptimizedRoutes[] {
+    const sortedRiders = [...riders];
+    sortedRiders.sort((a, b) => {
+      const distanciaA = this.calculateDistance(
+        orders[0].deliveryLocation.latitude,
+        orders[0].deliveryLocation.longitude,
+        a.initialLocation.lat,
+        a.initialLocation.lng
+      );
+      const distanciaB = this.calculateDistance(
+        orders[0].deliveryLocation.latitude,
+        orders[0].deliveryLocation.longitude,
+        b.initialLocation.lat,
+        b.initialLocation.lng
+      );
+      return distanciaA - distanciaB;
     });
 
-    return asignaciones;
+    const optimizedRoutes: IOptimizedRoutes[] = [];
+
+    orders.forEach((order, orderIndex) => {
+      const riderIndex = orderIndex % sortedRiders.length;
+      const rider = sortedRiders[riderIndex];
+
+      const existingRoute = optimizedRoutes.find(
+        (route) => route.driverId === rider.driverId
+      );
+
+      if (existingRoute) {
+        existingRoute.productsToDeliver.push({ orderId: order.orderId });
+      } else {
+        optimizedRoutes.push({
+          routeId: `${optimizedRoutes.length + 1}`,
+          driverId: rider.driverId,
+          productsToDeliver: [{ orderId: order.orderId }],
+        });
+      }
+    });
+    this.ls.setItem("routes", optimizedRoutes);
+    return optimizedRoutes;
   }
 
   private calculateDistance(
@@ -66,7 +81,6 @@ export class OptimizedRoutesService {
     lat2: number,
     lng2: number
   ): number {
-    // Esta función calcula la distancia entre dos puntos utilizando la fórmula de Haversine
     const radlat1 = (Math.PI * lat1) / 180;
     const radlat2 = (Math.PI * lat2) / 180;
     const theta = lng1 - lng2;

@@ -56,6 +56,13 @@
     <div class="assignGroup3">
       <div class="buttonEndGroupAssign">
         <button
+          (click)="changeToImprovedRoutes()"
+          class="improvedRoutesAssigns"
+          [matTooltip]="'tooltipAssign4' | translate"
+        >
+          <span class="material-symbols-outlined"> bolt </span>
+        </button>
+        <button
           class="resetAllAssigns"
           (click)="cleanUpdatedRules()"
           [matTooltip]="'tooltipAssign2' | translate"
@@ -70,7 +77,6 @@
           <span class="material-symbols-outlined"> save </span>
         </button>
       </div>
-      <button (click)="improvedRoutes()">Improved Routes</button>
     </div>
   </div>
 </div>

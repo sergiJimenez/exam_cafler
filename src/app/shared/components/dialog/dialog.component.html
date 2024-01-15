@@ -1,15 +1,7 @@
 <div class="container">
-  <mat-form-field *ngIf="routes.length > 0">
-    <mat-label>Confirm initial route #</mat-label>
-    <mat-select [(value)]="fromRoute">
-      <mat-option *ngFor="let route of routes" value="{{ route.routeId }}">{{
-        route.routeId
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field *ngIf="routes.length > 0">
+  <mat-form-field name="final_route" *ngIf="routes.length > 0">
     <mat-label>Select final route #</mat-label>
-    <mat-select [(value)]="toRoute">
+    <mat-select disableRipple [(value)]="toRoute">
       <mat-option *ngFor="let route of routes" value="{{ route.routeId }}">{{
         route.routeId
       }}</mat-option>
@@ -18,7 +10,7 @@
   <button
     mat-flat-button
     color="accent"
-    (click)="moveOrderToRoute(data, fromRoute, toRoute)"
+    (click)="moveOrderToRoute(data.orderId, data.fromRoute, toRoute)"
   >
     Apply Change
   </button>
