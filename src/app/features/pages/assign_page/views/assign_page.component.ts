@@ -8,6 +8,8 @@ import { RidersService } from "src/app/features/services/riders.service";
 import { DialogComponent } from "src/app/shared/components/dialog/dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { RouteUpdatedService } from "src/app/features/services/route-updated.service";
+import { OrdersService } from "src/app/features/services/orders.service";
+import { IOrders } from "src/app/shared/interfaces/orders.interface";
 
 @Component({
   selector: "app-assign-page",
@@ -16,8 +18,9 @@ import { RouteUpdatedService } from "src/app/features/services/route-updated.ser
 })
 export class AssignPageComponent implements OnInit {
   public optimizedRoutes$!: Observable<IOptimizedRoutes[]>;
-  public optimizedRoutesDetails: IOptimizedRoutes | undefined;
   public riders$!: Observable<IRiders[]>;
+  public orders$!: Observable<IOrders[]> = this.ordersService.getOrders();
+  public optimizedRoutesDetails: IOptimizedRoutes | undefined;
   private data: string = "";
 
   constructor(
@@ -25,7 +28,8 @@ export class AssignPageComponent implements OnInit {
     public dialog: MatDialog,
     private ridersService: RidersService,
     private optimizedRoutes: OptimizedRoutesService,
-    private routeUpdated: RouteUpdatedService
+    private routeUpdated: RouteUpdatedService,
+    private ordersService: OrdersService
   ) {}
 
   public ngOnInit(): void {
@@ -47,7 +51,9 @@ export class AssignPageComponent implements OnInit {
     });
   }
 
-  public improvedRoutes() {}
+  public improvedRoutes(): void {
+    this.optimizedRoutes.getRoutesImproved(this.orders$, this.riders$);
+  }
 
   public cleanUpdatedRules(): void {
     sessionStorage.setItem("hasTriedAccess", "true");
