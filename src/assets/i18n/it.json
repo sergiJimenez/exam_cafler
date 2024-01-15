@@ -25,5 +25,8 @@
   "tooltipAssign1": "Modificare il percorso del prodotto",
   "tooltipAssign2": "Ripristina i valori predefiniti",
   "tooltipAssign3": "Salva",
-  "tooltipAssign4": "Migliorare le rotte di consegna"
+  "tooltipAssign4": "Migliorare le rotte di consegna",
+  "dialog0": "Riassegnazione del prodotto",
+  "dialog1": "A quale percorso vuoi riassegnare questo prodotto?",
+  "dialog2": "Applicare le modifiche"
 }

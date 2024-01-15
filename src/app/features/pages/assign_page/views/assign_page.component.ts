@@ -36,9 +36,8 @@ export class AssignPageComponent implements OnInit {
 
   public openDialog(orderId: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: "250px",
-      height: "250px",
       data: { orderId: orderId, fromRoute: this.getRootRoute(orderId) },
+      panelClass: "dialogContainer",
     });
 
     dialogRef.afterClosed().subscribe(() => {

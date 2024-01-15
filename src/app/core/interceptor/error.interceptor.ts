@@ -53,7 +53,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error.status >= 400 && error.status < 600) {
           this.openSnackBar(`Error HTTP: ${error.status}`);
           return throwError(
-            () => new Error("Ocurrió un error en la solicitud.")
+            () => new Error("Something goes wrong when the program makes the request...")
           );
         }
         return throwError(() => error);
@@ -65,7 +65,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private openSnackBar(message: string): void {
-    this.snackBar.open(message, "Cerrar", {
+    this.snackBar.open(message, "Close", {
       duration: 3000,
       panelClass: ["cafler-snackbar"],
     });

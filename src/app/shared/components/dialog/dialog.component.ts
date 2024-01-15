@@ -63,7 +63,7 @@ export class DialogComponent implements OnInit {
     }
   }
 
-  private onNoClick(): void {
+  public onNoClick(): void {
     this.dialogRef.close();
   }
 
