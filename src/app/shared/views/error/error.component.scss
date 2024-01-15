@@ -1,13 +1,22 @@
 @import "../../../../styles.scss";
 
 :host {
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.errorContainerView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 14em 0;
 }
 
 .groupError {
@@ -32,11 +41,58 @@
   transition:
     color,
     background-color,
-    transform, 0.2s ease-in-out;
+    transform,
+    0.2s ease-in-out;
 }
 
 .backError:hover {
   color: $white-cafler;
   background-color: $orange-cafler;
   transform: translateY(-5px);
+}
+
+.decorator1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 380px;
+  left: 1050px;
+  background-image: url("../../../../assets/images/Ilustracion-carretera.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  object-fit: cover;
+  transform: rotate(-25deg);
+  z-index: -1000;
+}
+
+.decorator2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 450px;
+  left: -1050px;
+  background-image: url("../../../../assets/images/Ilustracion-carretera2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  object-fit: cover;
+  transform: rotate(40deg);
+  z-index: -1000;
+}
+
+@media screen and (max-width: 1920px) {
+  .errorContainerView {
+    margin: 5em 0;
+  }
+
+  .decorator1 {
+    top: 300px;
+    left: 850px;
+  }
+
+  .decorator2 {
+    top: 270px;
+    left: -970px;
+  }
 }

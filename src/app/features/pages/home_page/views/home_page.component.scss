@@ -22,8 +22,7 @@
   flex-direction: column;
   align-items: stretch;
   gap: 1em;
-  max-width: 1000px;
-  margin: 12em auto 8em auto;
+  margin: 12em 35em 8em 35em;
 }
 
 .ordersText {
@@ -126,4 +125,15 @@
   object-fit: cover;
   transform: rotate(-25deg);
   z-index: -1000;
+}
+
+@media screen and (max-width: 1920px) {
+  .container {
+    margin: 0em 20em 8em 20em;
+  }
+
+  .decorator {
+    top: 190px;
+    left: 810px;
+  }
 }
