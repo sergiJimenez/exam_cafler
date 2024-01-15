@@ -25,8 +25,8 @@
   color: $green-cafler;
 }
 
-.testTest {
-  margin: 0 auto 0 auto;
+.assignInsideGroup {
+  margin: 0 35em 0 35em;
 }
 
 .backButtonContainer {
@@ -222,4 +222,19 @@
   color: $ai;
   background-color: $yellow-cafler;
   transform: translateY(-5px);
+}
+
+@media screen and (max-width: 1920px) {
+  .assignGroup1 {
+    margin: 0 0 4em 0;
+  }
+
+  .assignInsideGroup {
+    margin: 0em 20em 0em 20em;
+  }
+
+  .decorator {
+    top: 450px;
+    left: -650px;
+  }
 }

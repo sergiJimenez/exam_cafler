@@ -1,6 +1,10 @@
-<ng-lottie [options]="options" (animationCreated)="onAnimate($event)">
-</ng-lottie>
-<div class="groupError">
-  <div class="errorText">{{ "error1" | translate }}</div>
-  <a class="backError" routerLink="/home">{{ "error2" | translate }}</a>
+<svg class="decorator1"></svg>
+<svg class="decorator2"></svg>
+<div class="errorContainerView">
+  <ng-lottie [options]="options" (animationCreated)="onAnimate($event)">
+  </ng-lottie>
+  <div class="groupError">
+    <div class="errorText">{{ "error1" | translate }}</div>
+    <a class="backError" routerLink="/home">{{ "error2" | translate }}</a>
+  </div>
 </div>
