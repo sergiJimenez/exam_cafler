@@ -8,7 +8,7 @@ import { AnimationOptions } from "ngx-lottie";
   styleUrls: ["./error.component.scss"],
 })
 export class ErrorComponent {
-  options: AnimationOptions = {
+  public options: AnimationOptions = {
     path: "../../../../assets/lottie/error.json",
   };
 

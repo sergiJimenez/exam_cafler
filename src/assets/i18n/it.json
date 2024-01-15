@@ -4,7 +4,7 @@
   "ordersText": "Ordini per il giorno successivo:",
   "Nombre del producto": "Nome del prodotto",
   "Precio": "Prezzo",
-  "assign1": "Indietro",
+  "backButton": "Indietro",
   "error1": "Qualcosa non funziona correttamente...",
   "error2": "Torna all'inizio",
   "navItem1": "Inizio",
@@ -14,7 +14,15 @@
   "en": "Inglese",
   "fr": "Francese",
   "it": "Italiano",
+  "assignTitle1": "Assegnazione di",
+  "assignTitle2": "Prodotti",
+  "routeTitleAssign": "Percorso",
+  "driverAssign": "Autista:",
   "saveRoutes": "Salva",
   "noProductName": "Non abbiamo trovato il nome del prodotto...",
-  "noRiderName": "Non abbiamo trovato il nome di questo conducente..."
+  "noRiderName": "Non abbiamo trovato il nome di questo conducente...",
+  "tooltipHome1": "Assegnare prodotti",
+  "tooltipAssign1": "Modificare il percorso del prodotto",
+  "tooltipAssign2": "Ripristina i valori predefiniti",
+  "tooltipAssign3": "Salva"
 }

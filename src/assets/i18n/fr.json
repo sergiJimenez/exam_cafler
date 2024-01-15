@@ -4,7 +4,7 @@
   "ordersText": "Commandes pour le lendemain:",
   "Nombre del producto": "Nom du produit",
   "Precio": "Prix",
-  "assign1": "Retour",
+  "backButton": "Retour",
   "error1": "Quelque chose ne fonctionne pas correctement...",
   "error2": "Retour à la page d'accueil",
   "navItem1": "Accueil",
@@ -14,7 +14,15 @@
   "en": "Anglais",
   "fr": "Français",
   "it": "Italien",
+  "assignTitle1": "Assignation de",
+  "assignTitle2": "Produits",
+  "routeTitleAssign": "Itinéraire",
+  "driverAssign": "Conducteur:",
   "saveRoutes": "Enregistrer",
   "noProductName": "Nous n'avons pas trouvé le nom du produit...",
-  "noRiderName": "Nous n'avons pas trouvé le nom de ce conducteur..."
+  "noRiderName": "Nous n'avons pas trouvé le nom de ce conducteur...",
+  "tooltipHome1": "Attribuer des produits",
+  "tooltipAssign1": "Changer l'itinéraire du produit",
+  "tooltipAssign2": "Restaurer les valeurs par défaut",
+  "tooltipAssign3": "Enregistrer"
 }

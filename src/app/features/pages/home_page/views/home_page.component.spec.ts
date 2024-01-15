@@ -6,6 +6,8 @@ import { OrdersService } from "src/app/features/services/orders.service";
 import { ProductAccessService } from "src/app/core/services/productAccess.service";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 import { TranslateModule } from "@ngx-translate/core";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 describe("Home Page Component Unit Test", () => {
   let component: HomePageComponent;
@@ -24,7 +26,12 @@ describe("Home Page Component Unit Test", () => {
 
     TestBed.configureTestingModule({
       declarations: [HomePageComponent],
-      imports: [TranslateModule.forRoot(), HttpClientTestingModule],
+      imports: [
+        TranslateModule.forRoot(),
+        HttpClientTestingModule,
+        MatTooltipModule,
+        MatDividerModule
+      ],
       providers: [
         { provide: OrdersService, useValue: ordersServiceSpy },
         { provide: ProductAccessService, useValue: productAccessServiceSpy },

@@ -18,6 +18,8 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ProductNamePipe } from "src/app/shared/pipes/productName.pipe";
 import { RidersNamePipe } from "src/app/shared/pipes/ridersName.pipe";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatDividerModule } from "@angular/material/divider";
 
 describe("Assign Page Component Unit Test", () => {
   let component: AssignPageComponent;
@@ -49,7 +51,12 @@ describe("Assign Page Component Unit Test", () => {
 
     TestBed.configureTestingModule({
       declarations: [AssignPageComponent, ProductNamePipe, RidersNamePipe],
-      imports: [TranslateModule.forRoot(), HttpClientTestingModule],
+      imports: [
+        TranslateModule.forRoot(),
+        HttpClientTestingModule,
+        MatTooltipModule,
+        MatDividerModule,
+      ],
       providers: [
         { provide: LocalStorageService, useValue: localStorageSpy },
         { provide: OptimizedRoutesService, useValue: optimizedRoutesSpy },

@@ -8,7 +8,7 @@ import { DialogComponent } from "./components/dialog/dialog.component";
 import { MaterialModule } from "./material.module";
 import { LottieModule } from "ngx-lottie";
 
-export function playerFactory(): any {
+export function playerFactory() {
   return import("lottie-web");
 }
 

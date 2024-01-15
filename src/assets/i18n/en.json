@@ -4,7 +4,7 @@
   "ordersText": "Orders for the next day:",
   "Nombre del producto": "Product name",
   "Precio": "Price",
-  "assign1": "Back",
+  "backButton": "Back",
   "error1": "Something is not working correctly...",
   "error2": "Go to Home",
   "navItem1": "Home",
@@ -14,7 +14,15 @@
   "en": "English",
   "fr": "French",
   "it": "Italian",
+  "assignTitle1": "Product",
+  "assignTitle2": "Assignment",
+  "routeTitleAssign": "Route",
+  "driverAssign": "Driver:",
   "saveRoutes": "Save",
   "noProductName": "We couldn't find the product name...",
-  "noRiderName": "We couldn't find the name of this rider..."
+  "noRiderName": "We couldn't find the name of this rider...",
+  "tooltipHome1": "Assign products",
+  "tooltipAssign1": "Change the product route",
+  "tooltipAssign2": "Restore default values",
+  "tooltipAssign3": "Save"
 }
