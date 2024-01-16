@@ -1,0 +1,148 @@
+@import "../../../../styles.scss";
+
+.header_bckgrnd {
+  position: fixed;
+  top: 0;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  padding: 0.75em 0 0.75em 0;
+  margin: 0 35em 0 35em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.logo_navitems {
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  width: 11em;
+  height: 2em;
+  margin: 0 1.5em 0 0;
+  background-image: url("../../../../assets/images/logo-color.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.logoText {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+.pageButtons {
+  display: flex;
+  gap: 1em;
+  margin: 0 0 0 3em;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 64px;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  user-select: none;
+  overflow: visible;
+  vertical-align: middle;
+  font-family: "Roobert Light", sans-serif;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.navItems:hover {
+  color: $secondary-green-cafler;
+}
+
+select {
+  text-align: center;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Roobert Light", sans-serif;
+}
+
+.multiButton {
+  display: flex;
+  gap: 2em;
+  border: none !important;
+}
+
+.dark_mode {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.dark_mode:hover {
+  cursor: no-drop;
+  color: $green-cafler;
+}
+
+@media screen and (max-width: 1920px) {
+  .header_bckgrnd {
+    margin: 0 20em 0 20em;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .header_bckgrnd {
+    margin: 0 14em 0 14em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header_bckgrnd {
+    margin: 0 7em 0 7em;
+  }
+
+  .logo {
+    width: 10em;
+    height: 2em;
+    margin: 0 1.5em 0 0;
+  }
+
+  .logoText {
+    font-size: medium;
+  }
+
+  .pageButtons {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .header_bckgrnd {
+    margin: 0 0 0 0;
+  }
+
+  .logo {
+    width: 10em;
+    height: 2em;
+    margin: 0 1.5em 0 0;
+  }
+
+  .logoText {
+    font-size: medium;
+  }
+
+  .pageButtons {
+    margin: 0;
+  }
+}

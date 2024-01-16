@@ -1,0 +1,370 @@
+@import "../../../../../styles.scss";
+
+.assignMasterGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8em 0 0 0;
+}
+
+.assignGroup1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: xx-large;
+  margin: 0 0 6em 0;
+}
+
+.assignTitle1 {
+  font-family: "Roobert SemiBold";
+  margin-right: 10px;
+}
+
+.assignTitle2 {
+  font-family: "Roobert SemiBold Italic";
+  color: $green-cafler;
+}
+
+.assignInsideGroup {
+  margin: 0 35em 0 35em;
+}
+
+.backButtonContainer {
+  display: flex;
+  padding: 0 0 1em 0;
+}
+
+.backAssignButton {
+  display: flex;
+  width: auto;
+  padding: 0.75em 0.75em;
+  text-decoration: none;
+  border-radius: 100%;
+  font-family: "Roobert SemiBold";
+  background-color: $black-letters-cafler;
+  color: $green-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    color,
+    background-color,
+    transform,
+    0.2s ease-in-out;
+}
+
+.backAssignButton:hover {
+  color: $black-letters-cafler;
+  background-color: $orange-cafler;
+  transform: translateY(-5px);
+}
+
+.assignGroup2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.assignCardGlass {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 1em 2em;
+  margin: 0 0 0.75em 0;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.routeTitleAssign {
+  font-family: "Roobert SemiBold";
+  font-size: x-large;
+  margin: 0.75em 0 0.75em 0;
+}
+
+.productItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5em 0 1.5em 0;
+}
+
+.sendProductAssign {
+  display: flex;
+  align-items: center;
+  border: 0px;
+  border-radius: 100%;
+  padding: 0.5em;
+  background-color: $green-cafler;
+  color: $black-letters-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    transform,
+    background-color,
+    color,
+    0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.sendProductAssign:hover {
+  background-color: $blue-cafler;
+  color: $white-cafler;
+  transform: translateY(-5px);
+}
+
+.dividerDriver {
+  margin: 4.5em 0 1.5em 0;
+}
+
+.driverAssign {
+  margin: 0 0 0.75em 0;
+}
+
+.assignGroup3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1em 0em;
+}
+
+.buttonEndGroupAssign {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+}
+
+.resetAllAssigns {
+  width: auto;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 4px;
+  background-color: $red-cafler;
+  color: $white-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    color,
+    background-color,
+    transform,
+    0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.resetAllAssigns:hover {
+  color: $white-cafler;
+  background-color: $grey;
+  transform: translateY(-5px);
+}
+
+.saveAssigns {
+  width: auto;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 4px;
+  background-color: $blue-cafler;
+  color: $white-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    color,
+    background-color,
+    transform,
+    0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.saveAssigns:hover {
+  color: $black-letters-cafler;
+  background-color: $green-cafler;
+  transform: translateY(-5px);
+}
+
+.decorator {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 450px;
+  left: -1050px;
+  background-image: url("../../../../../assets/images/Ilustracion-carretera2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  object-fit: cover;
+  transform: rotate(40deg);
+  z-index: -1000;
+}
+
+.improvedRoutesAssigns {
+  width: auto;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 4px;
+  background-color: $ai;
+  color: $white-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color,
+    color,
+    transform,
+    0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.improvedRoutesAssigns:hover {
+  color: $ai;
+  background-color: $yellow-cafler;
+  transform: translateY(-5px);
+}
+
+@media screen and (max-width: 1920px) {
+  .assignGroup1 {
+    margin: 0 0 4em 0;
+  }
+
+  .assignInsideGroup {
+    margin: 0em 20em 0em 20em;
+  }
+
+  .decorator {
+    top: 450px;
+    left: -650px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .assignInsideGroup {
+    margin: 0em 14em 0em 14em;
+  }
+
+  .decorator {
+    width: 200%;
+    top: 520px;
+    left: -600px;
+  }
+
+  .assignGroup2 {
+    flex-wrap: wrap;
+  }
+
+  .assignGroup3 {
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .decorator {
+    width: 400%;
+    top: 320px;
+    left: -600px;
+  }
+
+  .assignMasterGroup {
+    margin: 0 0 0 0;
+  }
+
+  .assignGroup1 {
+    margin: 6em 2em 2em 2em;
+    font-size: large;
+  }
+
+  .assignInsideGroup {
+    margin: 0;
+  }
+
+  .assignCardGlass {
+    font-size: small;
+    max-width: 300px;
+    padding: 0.5em 1em;
+    margin: 0 0 0.75em 0;
+  }
+
+  .routeTitleAssign {
+    font-size: medium;
+  }
+
+  .assignGroup2 {
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .sendProductAssign {
+    padding: 0.25em;
+  }
+
+  .assignGroup3 {
+    justify-content: center;
+    margin: 2em 0em;
+  }
+
+  .backButtonContainer {
+    justify-content: center;
+  }
+
+  .backAssignButton[_ngcontent-ng-c3038868239] {
+    padding: 0.25em;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .decorator {
+    width: 400%;
+    top: 320px;
+    left: -600px;
+  }
+
+  .assignMasterGroup {
+    margin: 0 0 0 0;
+  }
+
+  .assignGroup1 {
+    margin: 6em 2em 2em 2em;
+    font-size: large;
+  }
+
+  .assignInsideGroup {
+    margin: 0;
+  }
+
+  .assignCardGlass {
+    font-size: small;
+    max-width: 300px;
+    padding: 0.5em 1em;
+    margin: 0 0 0.75em 0;
+  }
+
+  .routeTitleAssign {
+    font-size: medium;
+  }
+
+  .assignGroup2 {
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .sendProductAssign {
+    padding: 0.25em;
+  }
+
+  .assignGroup3 {
+    justify-content: center;
+    margin: 2em 0em;
+  }
+
+  .backButtonContainer {
+    justify-content: center;
+  }
+
+  .backAssignButton[_ngcontent-ng-c3038868239] {
+    padding: 0.25em;
+  }
+}

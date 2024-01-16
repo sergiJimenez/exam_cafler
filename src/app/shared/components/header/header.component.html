@@ -1,0 +1,32 @@
+<div class="header_bckgrnd">
+  <div class="logo_navitems">
+    <div class="logo" routerLink="/home">
+      <div class="logoText">Aparatos S.L.</div>
+    </div>
+    <div class="pageButtons">
+      <button
+        class="navItems"
+        *ngFor="let page of pages"
+        [routerLink]="page.route"
+      >
+        {{ page.name | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="multiButton">
+    <select #selectedLang (change)="switchLanguage(selectedLang.value)">
+      <option
+        *ngFor="let language of translate.getLangs()"
+        [value]="language"
+        [selected]="language === translate.currentLang"
+      >
+        {{ language | translate }}
+      </option>
+    </select>
+    <span
+      class="material-symbols-outlined dark_mode"
+    >
+      {{ icon() }}
+    </span>
+  </div>
+</div>

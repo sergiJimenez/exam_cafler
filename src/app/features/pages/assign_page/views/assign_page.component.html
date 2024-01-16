@@ -1,0 +1,82 @@
+<svg class="decorator"></svg>
+<div class="assignMasterGroup">
+  <div class="assignGroup1">
+    <span class="assignTitle1">{{ "assignTitle1" | translate }}</span>
+    <span class="assignTitle2">{{ "assignTitle2" | translate }}</span>
+  </div>
+  <div class="assignInsideGroup">
+    <div class="backButtonContainer">
+      <a
+        class="backAssignButton"
+        routerLink="/home"
+        [matTooltip]="'backButton' | translate"
+        ><span class="material-symbols-outlined"> arrow_back </span></a
+      >
+    </div>
+    <div
+      class="assignGroup2"
+      *ngIf="optimizedRoutes$ | async as optimizedRoutes"
+    >
+      <div
+        class="assignCardGlass"
+        *ngFor="let productRouteDetail of optimizedRoutes"
+      >
+        <div class="routeTitleAssign">
+          {{ "routeTitleAssign" | translate }} {{ productRouteDetail.routeId }}
+        </div>
+        <mat-divider></mat-divider>
+        <div
+          class="productItem"
+          *ngFor="let productsName of productRouteDetail.productsToDeliver"
+        >
+          {{
+            productsName.orderId
+              | productName: ls.getItem("orderList") || []
+              | translate
+          }}
+          <button
+            class="sendProductAssign"
+            (click)="openDialog(productsName.orderId)"
+            [matTooltip]="'tooltipAssign1' | translate"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+        <mat-divider class="dividerDriver"></mat-divider>
+        <div class="driverAssign">
+          {{ "driverAssign" | translate }}
+          {{
+            productRouteDetail.driverId
+              | ridersName: ls.getItem("riderList") || []
+              | translate
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="assignGroup3">
+      <div class="buttonEndGroupAssign">
+        <button
+          (click)="changeToImprovedRoutes()"
+          class="improvedRoutesAssigns"
+          [matTooltip]="'tooltipAssign4' | translate"
+        >
+          <span class="material-symbols-outlined"> bolt </span>
+        </button>
+        <button
+          class="resetAllAssigns"
+          (click)="cleanUpdatedRules()"
+          [matTooltip]="'tooltipAssign2' | translate"
+        >
+          <span class="material-symbols-outlined"> restart_alt </span>
+        </button>
+        <button
+          class="saveAssigns"
+          (click)="saveUpdatedRoutes()"
+          [matTooltip]="'tooltipAssign3' | translate"
+        >
+          <span class="material-symbols-outlined"> save </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

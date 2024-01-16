@@ -1,1 +1,154 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$exam_cafler-primary: mat.define-palette(mat.$indigo-palette);
+$exam_cafler-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$exam_cafler-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$exam_cafler-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $exam_cafler-primary,
+      accent: $exam_cafler-accent,
+      warn: $exam_cafler-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($exam_cafler-theme);
+
 /* You can add global styles to this file, and also import other style files */
+$green-cafler: #59f89c;
+$secondary-green-cafler: #0ebc57;
+$blue-cafler: #006AE7;
+$orange-cafler: #EF553B;
+$yellow-cafler: #F8D555;
+$red-cafler: #cf2e2e;
+$white-cafler: #f7f7f7;
+$black-letters-cafler: #180c2c;
+$grey: #222;
+$ai: #800080;
+
+@font-face {
+  font-family: "Roobert Light";
+  src: url("./assets/fonts/RoobertTRIAL-Light.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Light Italic";
+  src: url("./assets/fonts/RoobertTRIAL-LightItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Medium";
+  src: url("./assets/fonts/RoobertTRIAL-Medium.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Medium Italic";
+  src: url("./assets/fonts/RoobertTRIAL-MediumItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Regular";
+  src: url("./assets/fonts/RoobertTRIAL-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert Regular Italic";
+  src: url("./assets/fonts/RoobertTRIAL-RegularItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert SemiBold";
+  src: url("./assets/fonts/RoobertTRIAL-SemiBold.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roobert SemiBold Italic";
+  src: url("./assets/fonts/RoobertTRIAL-SemiBoldItalic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  background-color: $white-cafler;
+}
+
+body {
+  margin: 0;
+  font-family: "Roobert Regular", sans-serif;
+  color: $black-letters-cafler;
+  background: var(--background-color);
+}
+
+body.dark-theme {
+  --text-color: #fff;
+  --background-color: #222;
+}
+
+h1,
+p,
+a,
+li,
+select,
+div,
+button,
+option {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+button:hover {
+  color: $green-cafler;
+  background-color: var(--background-color);
+}
+
+.mat-mdc-snack-bar-container {
+  &.cafler-snackbar {
+    --mdc-snackbar-supporting-text-font: "Roobert Regular";
+    --mdc-snackbar-container-color: #222;
+    --mdc-snackbar-supporting-text-color: #f7f7f7;
+    --mat-snack-bar-button-color: #cf2e2e;
+  }
+}

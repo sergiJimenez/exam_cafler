@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "6f9f4e36-edf7-4891-b03e-bfb95f0f1a2d",
+		"name": "Cafler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32280877"
+	},
+	"item": [
+		{
+			"name": "Riders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n\t{\r\n\t\tdriverId: string,\r\n\t\tdriverName: string,\r\n\t\tinitialLocation: {\r\n\t\t\tlat: number,\r\n\t\t\tlng: number\r\n\t\t}\r\n\t}\r\n]",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": "https://exam.development.cafler.com/riders"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n\t{\r\n\t\torderId: string,\r\n\t\tproductName: string,\r\n\t\tprice: number,\r\n\t\tdeliveryLocation: {\r\n\t\t\tlat: number,\r\n\t\t\tlng: number\r\n\t\t}\r\n\t}\r\n]",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": "https://exam.development.cafler.com/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Optimized-Routes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n\t{\r\n\t\trouteId: string,\r\n\t\tdriverId: string,\r\n\t\tproductsToDeliver: {\r\n            orderId: string\r\n        }\r\n\t}\r\n]",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": "https://exam.development.cafler.com/optimized-routes"
+			},
+			"response": []
+		},
+		{
+			"name": "Route-Updated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": "https://exam.development.cafler.com/route-updated"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,193 @@
+@import "../../../../styles.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.errorContainerView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 14em 0;
+}
+
+.groupError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.errorText {
+  font-family: "Roobert SemiBold", sans-serif;
+  font-size: xx-large;
+}
+
+.backError {
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: "Roobert SemiBold";
+  background-color: $green-cafler;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  transition:
+    color,
+    background-color,
+    transform,
+    0.2s ease-in-out;
+}
+
+.backError:hover {
+  color: $white-cafler;
+  background-color: $orange-cafler;
+  transform: translateY(-5px);
+}
+
+.decorator1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 380px;
+  left: 1050px;
+  background-image: url("../../../../assets/images/Ilustracion-carretera.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  object-fit: cover;
+  transform: rotate(-25deg);
+  z-index: -1000;
+}
+
+.decorator2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 450px;
+  left: -1050px;
+  background-image: url("../../../../assets/images/Ilustracion-carretera2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  object-fit: cover;
+  transform: rotate(40deg);
+  z-index: -1000;
+}
+
+@media screen and (max-width: 1920px) {
+  .errorContainerView {
+    margin: 5em 0;
+  }
+
+  .decorator1 {
+    top: 200px;
+    left: 1030px;
+  }
+
+  .decorator2 {
+    top: 340px;
+    left: -800px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .errorContainerView {
+    margin: 8em 0;
+  }
+
+  ng-lottie {
+    width: 80%;
+    height: 80%;
+  }
+
+  .errorText {
+    font-size: x-large;
+  }
+
+  .backError {
+    padding: 0.75em 1.5em;
+    font-size: medium;
+  }
+
+  .decorator1 {
+    width: 400%;
+    top: -50px;
+    left: -160px;
+  }
+
+  .decorator2 {
+    width: 400%;
+    top: 320px;
+    left: -1820px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .errorContainerView {
+    margin: 8em 0;
+  }
+
+  ng-lottie {
+    width: 80%;
+    height: 80%;
+  }
+
+  .errorText {
+    font-size: x-large;
+  }
+
+  .backError {
+    padding: 0.75em 1.5em;
+    font-size: medium;
+  }
+
+  .decorator1 {
+    width: 400%;
+    top: -50px;
+    left: -160px;
+  }
+
+  .decorator2 {
+    width: 400%;
+    top: 320px;
+    left: -1820px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .errorContainerView {
+    margin: 8em 0;
+  }
+
+  ng-lottie {
+    width: 80%;
+    height: 80%;
+  }
+
+  .errorText {
+    font-size: large;
+  }
+
+  .backError {
+    padding: 0.5em 1.25em;
+    font-size: small;
+  }
+
+  .decorator1 {
+    width: 400%;
+    top: -50px;
+    left: -160px;
+  }
+
+  .decorator2 {
+    width: 400%;
+    top: 320px;
+    left: -580px;
+  }
+}
