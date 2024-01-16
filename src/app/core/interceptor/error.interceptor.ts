@@ -49,11 +49,18 @@ export class ErrorInterceptor implements HttpInterceptor {
           take(this.maxRetries)
         )
       ),
-      catchError((error: HttpErrorResponse) => {
-        if (error.status >= 400 && error.status < 600) {
+      catchError((error) => {
+        if (
+          error instanceof HttpErrorResponse &&
+          error.status >= 400 &&
+          error.status < 600
+        ) {
           this.openSnackBar(`Error HTTP: ${error.status}`);
           return throwError(
-            () => new Error("Something goes wrong when the program makes the request...")
+            () =>
+              new Error(
+                "Something goes wrong when the program makes the request..."
+              )
           );
         }
         return throwError(() => error);

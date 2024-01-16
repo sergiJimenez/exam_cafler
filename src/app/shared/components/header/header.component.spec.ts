@@ -52,7 +52,6 @@ describe("Header Component Unit Test", () => {
     expect(document.body.classList.toggle).toHaveBeenCalledWith("dark-theme");
     expect(component.isDarkThemeOn()).toBe(true);
 
-    // Toggle it again
     component.toggleDarkTheme();
 
     expect(document.body.classList.toggle).toHaveBeenCalledWith("dark-theme");
