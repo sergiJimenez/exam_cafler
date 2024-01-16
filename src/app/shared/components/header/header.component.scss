@@ -91,6 +91,7 @@ select {
 }
 
 .dark_mode:hover {
+  cursor: no-drop;
   color: $green-cafler;
 }
 

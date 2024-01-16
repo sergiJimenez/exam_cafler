@@ -34,9 +34,4 @@ export class HeaderComponent {
   public switchLanguage(lang: string): void {
     this.translate.use(lang);
   }
-
-  public toggleDarkTheme(): void {
-    document.body.classList.toggle("dark-theme");
-    this.isDarkThemeOn.update((isDarkThemeOn) => !isDarkThemeOn);
-  }
 }

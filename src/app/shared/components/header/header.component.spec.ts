@@ -43,18 +43,4 @@ describe("Header Component Unit Test", () => {
 
     expect(translateServiceMock.use).toHaveBeenCalledWith(lang);
   });
-
-  it("SHOULD toggle dark theme", () => {
-    spyOn(document.body.classList, "toggle");
-
-    component.toggleDarkTheme();
-
-    expect(document.body.classList.toggle).toHaveBeenCalledWith("dark-theme");
-    expect(component.isDarkThemeOn()).toBe(true);
-
-    component.toggleDarkTheme();
-
-    expect(document.body.classList.toggle).toHaveBeenCalledWith("dark-theme");
-    expect(component.isDarkThemeOn()).toBe(false);
-  });
 });
