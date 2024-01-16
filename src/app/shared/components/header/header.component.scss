@@ -13,6 +13,7 @@
   margin: 0 35em 0 35em;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 .logo_navitems {
@@ -95,5 +96,51 @@ select {
 @media screen and (max-width: 1920px) {
   .header_bckgrnd {
     margin: 0 20em 0 20em;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .header_bckgrnd {
+    margin: 0 14em 0 14em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header_bckgrnd {
+    margin: 0 7em 0 7em;
+  }
+
+  .logo {
+    width: 10em;
+    height: 2em;
+    margin: 0 1.5em 0 0;
+  }
+
+  .logoText {
+    font-size: medium;
+  }
+
+  .pageButtons {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .header_bckgrnd {
+    margin: 0 0 0 0;
+  }
+
+  .logo {
+    width: 10em;
+    height: 2em;
+    margin: 0 1.5em 0 0;
+  }
+
+  .logoText {
+    font-size: medium;
+  }
+
+  .pageButtons {
+    margin: 0;
   }
 }

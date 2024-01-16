@@ -61,7 +61,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
+  // justify-content: center;
   gap: 2em;
 }
 
@@ -236,5 +237,135 @@
   .decorator {
     top: 450px;
     left: -650px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .assignInsideGroup {
+    margin: 0em 14em 0em 14em;
+  }
+
+  .decorator {
+    width: 200%;
+    top: 520px;
+    left: -600px;
+  }
+
+  .assignGroup2 {
+    flex-wrap: wrap;
+  }
+
+  .assignGroup3 {
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .decorator {
+    width: 400%;
+    top: 320px;
+    left: -600px;
+  }
+
+  .assignMasterGroup {
+    margin: 0 0 0 0;
+  }
+
+  .assignGroup1 {
+    margin: 6em 2em 2em 2em;
+    font-size: large;
+  }
+
+  .assignInsideGroup {
+    margin: 0;
+  }
+
+  .assignCardGlass {
+    font-size: small;
+    max-width: 300px;
+    padding: 0.5em 1em;
+    margin: 0 0 0.75em 0;
+  }
+
+  .routeTitleAssign {
+    font-size: medium;
+  }
+
+  .assignGroup2 {
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .sendProductAssign {
+    padding: 0.25em;
+  }
+
+  .assignGroup3 {
+    justify-content: center;
+    margin: 2em 0em;
+  }
+
+  .backButtonContainer {
+    justify-content: center;
+  }
+
+  .backAssignButton[_ngcontent-ng-c3038868239] {
+    padding: 0.25em;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .decorator {
+    width: 400%;
+    top: 320px;
+    left: -600px;
+  }
+
+  .assignMasterGroup {
+    margin: 0 0 0 0;
+  }
+
+  .assignGroup1 {
+    margin: 6em 2em 2em 2em;
+    font-size: large;
+  }
+
+  .assignInsideGroup {
+    margin: 0;
+  }
+
+  .assignCardGlass {
+    font-size: small;
+    max-width: 300px;
+    padding: 0.5em 1em;
+    margin: 0 0 0.75em 0;
+  }
+
+  .routeTitleAssign {
+    font-size: medium;
+  }
+
+  .assignGroup2 {
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .sendProductAssign {
+    padding: 0.25em;
+  }
+
+  .assignGroup3 {
+    justify-content: center;
+    margin: 2em 0em;
+  }
+
+  .backButtonContainer {
+    justify-content: center;
+  }
+
+  .backAssignButton[_ngcontent-ng-c3038868239] {
+    padding: 0.25em;
   }
 }
