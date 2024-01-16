@@ -7,7 +7,7 @@ import { LocalStorageService } from "src/app/core/services/localStorage.service"
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { MatTooltipModule } from "@angular/material/tooltip";
 
-describe("DialogComponent", () => {
+describe("Dialog Component Unit Test", () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
 

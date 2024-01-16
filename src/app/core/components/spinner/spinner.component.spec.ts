@@ -1,54 +1,51 @@
-// import { ComponentFixture, TestBed } from "@angular/core/testing";
-// import { LoaderService } from "../../services/loader.service";
-// import { SpinnerComponent } from "./spinner.component";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { SpinnerComponent } from "./spinner.component";
 
-// describe("Loading spinner unit test", () => {
-//   let component: SpinnerComponent;
-//   let fixture: ComponentFixture<SpinnerComponent>;
-//   let loaderServiceStub: jasmine.SpyObj<LoaderService>;
+describe("Loader Component Unit Test", () => {
+  let component: SpinnerComponent;
+  let fixture: ComponentFixture<SpinnerComponent>;
 
-//   beforeEach(() => {
-//     loaderServiceStub = jasmine.createSpyObj("LoaderService", [
-//       "getLoading",
-//       "setLoading",
-//     ]);
-//     loaderServiceStub.getLoading.and.returnValue(false);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [SpinnerComponent],
+    });
 
-//     TestBed.configureTestingModule({
-//       declarations: [SpinnerComponent],
-//       providers: [{ provide: LoaderService, useValue: loaderServiceStub }],
-//     });
+    fixture = TestBed.createComponent(SpinnerComponent);
+    component = fixture.componentInstance;
+  });
 
-//     fixture = TestBed.createComponent(SpinnerComponent);
-//     component = fixture.componentInstance;
-//   });
+  it("SHOULD create the loader component", () => {
+    expect(component).toBeTruthy();
+  });
 
-//   it("SHOULD create", () => {
-//     expect(component).toBeTruthy();
-//   });
+  it("SHOULD show the loader when loading is true", () => {
+    component.loader.setLoading(true);
+    fixture.detectChanges();
 
-//   it("SHOULD display spinner when loading is true", () => {
-//     loaderServiceStub.getLoading.and.returnValue(true);
-//     fixture.detectChanges();
+    const loaderElement = fixture.debugElement.query(
+      By.css(".cssload-container")
+    );
+    expect(loaderElement).toBeTruthy();
 
-//     const spinnerElement =
-//       fixture.nativeElement.querySelector(".cssload-container");
-//     expect(spinnerElement).toBeTruthy();
-//   });
+    const spinnerElement = fixture.debugElement.query(
+      By.css(".cssload-speeding-wheel")
+    );
+    expect(spinnerElement).toBeTruthy();
+  });
 
-//   it("SHOULD not display spinner when loading is false", () => {
-//     loaderServiceStub.getLoading.and.returnValue(false);
-//     fixture.detectChanges();
+  it("SHOULD hide the loader when loading is false", () => {
+    component.loader.setLoading(false);
+    fixture.detectChanges();
 
-//     const spinnerElement =
-//       fixture.nativeElement.querySelector(".cssload-container");
-//     expect(spinnerElement).toBeFalsy();
-//   });
+    const loaderElement = fixture.debugElement.query(
+      By.css(".cssload-container")
+    );
+    expect(loaderElement).toBeNull();
 
-//   it("SHOULD call setLoading method on loader service", () => {
-//     loaderServiceStub.getLoading.and.returnValue(true);
-//     fixture.detectChanges();
-
-//     expect(loaderServiceStub.setLoading).toHaveBeenCalledWith(true);
-//   });
-// });
+    const spinnerElement = fixture.debugElement.query(
+      By.css(".cssload-speeding-wheel")
+    );
+    expect(spinnerElement).toBeNull();
+  });
+});
