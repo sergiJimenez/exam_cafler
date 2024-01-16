@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { IOrders } from "src/app/shared/interfaces/orders.interface";
 import { OrdersService } from "src/app/features/services/orders.service";
-import { ProductAccessService } from "src/app/core/services/productAccess.service";
 
 @Component({
   selector: "app-home-page",
@@ -16,8 +15,7 @@ export class HomePageComponent implements OnInit {
   public username: string = "Aparatos S.L.";
 
   constructor(
-    private ordersService: OrdersService,
-    private productAccessService: ProductAccessService
+    private ordersService: OrdersService
   ) {}
 
   public ngOnInit(): void {
@@ -30,10 +28,6 @@ export class HomePageComponent implements OnInit {
       minimumFractionDigits: 0,
       maximumFractionDigits: 2,
     });
-  }
-
-  public allowAccess(): void {
-    this.productAccessService.allowAccess();
   }
 
   private loadOrders(): void {

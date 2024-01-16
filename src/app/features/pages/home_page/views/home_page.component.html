@@ -22,7 +22,6 @@
   <a
     class="assignButton"
     routerLink="/assign"
-    (click)="allowAccess()"
     *ngIf="(orders$ | async)?.length"
     [matTooltip]="'tooltipHome1' | translate"
   >
