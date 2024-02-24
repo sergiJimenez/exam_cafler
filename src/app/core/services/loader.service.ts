@@ -8,11 +8,11 @@ export class LoaderService {
 
   constructor() {}
 
-  setLoading(loading: boolean) {
+  public setLoading(loading: boolean) {
     this.loading = loading;
   }
 
-  getLoading(): boolean {
+  public getLoading(): boolean {
     return this.loading;
   }
 }

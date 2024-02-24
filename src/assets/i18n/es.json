@@ -28,5 +28,6 @@
   "tooltipAssign4": "Mejorar las rutas de reparto",
   "dialog0": "Reasignación del producto",
   "dialog1": "¿A qué ruta quieres reasignar este producto?",
-  "dialog2": "Aplicar los cambios"
+  "dialog2": "Aplicar los cambios",
+  "commingSoon": "Proximamente..."
 }

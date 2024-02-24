@@ -12,7 +12,7 @@ export class ErrorComponent {
     path: "../../../../assets/lottie/error.json",
   };
 
-  onAnimate(animationItem: AnimationItem): void {
+  public onAnimate(animationItem: AnimationItem): void {
     animationItem;
   }
 }
