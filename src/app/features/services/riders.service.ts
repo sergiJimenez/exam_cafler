@@ -14,7 +14,7 @@ export class RidersService {
     private localStorage: LocalStorageService
   ) {}
 
-  getRiders(): Observable<IRiders[]> {
+  public getRiders(): Observable<IRiders[]> {
     return this.http
       .get<IRiders[]>(`${environment.BASE_URL}${environment.RIDERS}`)
       .pipe(

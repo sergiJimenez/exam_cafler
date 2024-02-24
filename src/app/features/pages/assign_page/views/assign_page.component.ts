@@ -17,9 +17,6 @@ import { IOrders } from "src/app/shared/interfaces/orders.interface";
 })
 export class AssignPageComponent implements OnInit {
   public optimizedRoutes$!: Observable<IOptimizedRoutes[]>;
-  public optimizedRoutesDetails: IOptimizedRoutes | undefined;
-  public riders$!: Observable<IRiders[]>;
-  public riders!: IRiders[];
 
   constructor(
     public ls: LocalStorageService,
@@ -52,7 +49,6 @@ export class AssignPageComponent implements OnInit {
   }
 
   public cleanUpdatedRules(): void {
-    sessionStorage.setItem("hasTriedAccess", "true");
     this.ls.removeItem("routes");
     location.reload();
   }

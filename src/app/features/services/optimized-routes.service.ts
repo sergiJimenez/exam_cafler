@@ -36,19 +36,19 @@ export class OptimizedRoutesService {
   ): IOptimizedRoutes[] {
     const sortedRiders = [...riders];
     sortedRiders.sort((a, b) => {
-      const distanciaA = this.calculateDistance(
+      const distanceA = this.calculateDistance(
         orders[0].deliveryLocation.latitude,
         orders[0].deliveryLocation.longitude,
         a.initialLocation.lat,
         a.initialLocation.lng
       );
-      const distanciaB = this.calculateDistance(
+      const distanceB = this.calculateDistance(
         orders[0].deliveryLocation.latitude,
         orders[0].deliveryLocation.longitude,
         b.initialLocation.lat,
         b.initialLocation.lng
       );
-      return distanciaA - distanciaB;
+      return distanceA - distanceB;
     });
 
     const optimizedRoutes: IOptimizedRoutes[] = [];

@@ -14,7 +14,7 @@ export class OrdersService {
     private localStorage: LocalStorageService
   ) {}
 
-  getOrders(): Observable<IOrders[]> {
+  public getOrders(): Observable<IOrders[]> {
     return this.http
       .get<IOrders[]>(`${environment.BASE_URL}${environment.ORDERS}`)
       .pipe(
